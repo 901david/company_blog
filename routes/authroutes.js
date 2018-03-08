@@ -1,5 +1,18 @@
+const fetch = require('node-fetch');
+
+
 module.exports = (app, passport) => {
-    app.post('/authorize', (req, res) => {
-        passport.authenticate('github', { scope: ['user:email'] });
+
+    app.get('/authorized',() => {
+        passport.authenticate('github', { failureRedirect: '/fail' }),
+        function(req, res) {
+            // Successful authentication, redirect home.
+            res.sendFile(path.join(__dirname, '..', 'companyblog', 'dist', 'index.html'));
+        };
     });
 };
+
+
+
+
+

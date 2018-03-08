@@ -1,0 +1,11 @@
+.box-finish {
+  border: 3px solid lightgrey;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5%;
+  padding: 3%;
+  background-color: white;
+}
+#main-view {
+  background-color: steelblue;
+  height: 100vh;
+}

@@ -1,3 +1,44 @@
-<p>
-  create-post works!
-</p>
+<div class="row">
+  <div class="col-xs-9" id="main-view">
+    <div class="col-xs-12 col-md-10 col-md-offset-1 box-finish">
+      <div class="row">
+        <form [formGroup]="blogForm" class="col s12" novalidate>
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="title" type="text" formControlName="title">
+              <label for="title">Title</label>
+            </div>
+          </div>
+          <div class="row">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea placeholder="Body" id="body" class="materialize-textarea" formControlName="body"></textarea>
+                  <label for="body">Body</label>
+                </div>
+              </div>
+          </div>
+            <div class="row">
+              <div class="switch">
+                <label>
+                  Group 1
+                  <input type="checkbox" id="Group1">
+                  <span (click)="onToggle('Group 1')" class="lever"></span>
+
+                </label>
+              </div>
+              <div class="switch">
+                <label>
+                  Group 2
+                  <input type="checkbox">
+                  <span (click)="onToggle('Group 2')" class="lever"></span>
+
+                </label>
+              </div>
+            </div>
+          <div type="submit" [ngClass]="{disabled: !blogForm.valid}" (click)="onPost()" class="btn waves-light waves-effect">Post</div>
+          <div type="button" (click)="onSave()" class="btn waves-light waves-effect">Save Draft</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

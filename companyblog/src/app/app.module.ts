@@ -14,6 +14,8 @@ import { IndividualPostsComponent } from './dashboard/individual-posts/individua
 import { CreatePostComponent } from './dashboard/create-post/create-post.component';
 import { MainScreenViewComponent } from './dashboard/main-screen-view/main-screen-view.component';
 import { TeamPostsComponent } from './dashboard/team-posts/team-posts.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -32,9 +34,11 @@ import { TeamPostsComponent } from './dashboard/team-posts/team-posts.component'
   imports: [
     MaterializeModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

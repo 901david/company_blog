@@ -16,7 +16,9 @@ import { MainScreenViewComponent } from './dashboard/main-screen-view/main-scree
 import { TeamPostsComponent } from './dashboard/team-posts/team-posts.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
-
+import { CookieService } from 'ngx-cookie-service';
+import {AuthServiceService} from "./auth-service.service";
+import {AuthGuardService} from "./auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,7 @@ import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [FormBuilder],
+  providers: [FormBuilder, CookieService, AuthServiceService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

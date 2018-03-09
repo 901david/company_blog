@@ -6,10 +6,21 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const GitHubStrategy = require('passport-github2').Strategy;
 const path = require('path');
-
+const cookieParser = require('cookie-parser');
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
+const PORT = process.env.PORT || 3002;
+const firebase = require('firebase');
 
+firebase.initializeApp({
+    apiKey: process.env.apiKey,
+    authDomain: process.env.authDomain,
+    databaseURL: process.env.databaseURL,
+    projectId: process.env.projectId,
+    storageBucket: process.env.storageBucket,
+    messagingSenderId: process.env.messagingSenderId
+});
+const db = firebase.database();
 
 // Passport session setup.
 passport.serializeUser(function(user, done) {
@@ -20,16 +31,17 @@ passport.deserializeUser(function(obj, done) {
     done(null, obj);
 });
 
-
+let profileInfo;
 passport.use(new GitHubStrategy({
         clientID: GITHUB_CLIENT_ID,
         clientSecret: GITHUB_CLIENT_SECRET,
         callbackURL: "http://127.0.0.1:3002/auth/github/callback"
     },
     (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
+        profileInfo = profile;
 
         process.nextTick(function () {
+
             return done(null, profile);
         });
     }
@@ -40,15 +52,13 @@ passport.use(new GitHubStrategy({
 
 const app = express();
 
-// configure Express
-app.set('views', __dirname + '/views');
-// app.use(partials());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride());
 app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
-// Initialize Passport!  Also use passport.session() middleware, to support
-// persistent login sessions (recommended).
+
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'companyblog', 'dist')));
@@ -60,11 +70,7 @@ app.get('/', function(req, res){
 
 
 
-// GET /auth/github
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request.  The first step in GitHub authentication will involve redirecting
-//   the user to github.com.  After authorization, GitHub will redirect the user
-//   back to this application at /auth/github/callback
+//Auth routes
 app.get('/auth/github',
     passport.authenticate('github', { scope: [ 'user:email' ] }),
     function(req, res){
@@ -72,15 +78,22 @@ app.get('/auth/github',
         // function will not be called.
     });
 
-// GET /auth/github/callback
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request.  If authentication fails, the user will be redirected back to the
-//   login page.  Otherwise, the primary route function will be called,
-//   which, in this example, will redirect the user to the home page.
 app.get('/auth/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
-        res.redirect('/');
+
+    const gitProfile = {
+        id: profileInfo.id,
+        displayName: profileInfo.displayName,
+        userName: profileInfo.username,
+        profileUrl: profileInfo.profileUrl,
+        email: profileInfo.emails[0].value ? profileInfo.emails[0].value : '',
+        avatar: profileInfo.photos[0].value ? profileInfo.photos[0].value : '',
+        bio: profileInfo._json.bio,
+        viewed: []
+    };
+        db.ref(`/users/${profileInfo.username}`).set(gitProfile);
+        res.cookie('currentUser', {userName: gitProfile.userName, displayName: gitProfile.displayName, id: gitProfile.id}, {expire: 360000 + Date.now()}).redirect('/');
     });
 
 app.get('/logout', function(req, res){
@@ -88,15 +101,12 @@ app.get('/logout', function(req, res){
     res.redirect('/');
 });
 
-app.listen(3002);
+app.listen(PORT, (err) => {
+    if(!err) {
+        console.log(`Listening on port:  ${PORT}`);
+    }
+    else {
+        console.log(err);
+    }
+});
 
-
-// Simple route middleware to ensure user is authenticated.
-//   Use this route middleware on any resource that needs to be protected.  If
-//   the request is authenticated (typically via a persistent login session),
-//   the request will proceed.  Otherwise, the user will be redirected to the
-//   login page.
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) { return next(); }
-    res.redirect('/login')
-}

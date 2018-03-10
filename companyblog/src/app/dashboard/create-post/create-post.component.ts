@@ -16,30 +16,33 @@ export class CreatePostComponent implements OnInit {
   groups: string[] = [];
   blogPost: BlogPostModel;
   teamBlast: boolean = false;
-  constructor(private formBuilder: FormBuilder, private authService: AuthServiceService, private router: Router) { }
+
+  constructor(private formBuilder: FormBuilder,
+              private authService: AuthServiceService,
+              private router: Router) { }
 
   ngOnInit() {
+    //If user has a draft saved from previous session we want to re-instate that
     if(localStorage.getItem('savedDraft')){
       const savedDraft = JSON.parse(localStorage.getItem('savedDraft'));
       this.initializeForm(savedDraft.title, savedDraft.body);
       this.groups = savedDraft.groups;
       this.teamBlast = savedDraft.teamBlast;
-
-
     }
     else {
       this.initializeForm();
     }
-
-    console.log(this.groups);
-  }
+    }
+  //Initializes the form for creating a post
   initializeForm(titleText = '', bodyText = '') {
     this.blogForm = this.formBuilder.group({
       title: [titleText, Validators.required],
       body: [bodyText, Validators.required]
     })
   }
+  //handles the post of a blog
   onPost() {
+
   const { title, body } = this.blogForm.value;
   this.blogPost = {
     user: this.authService.currentUserProfile.userName,
@@ -51,8 +54,12 @@ export class CreatePostComponent implements OnInit {
     viewedBy: []
   }
   console.log(this.blogPost);
+  //If we had a draft now it has been posted so lets remove it
   localStorage.removeItem('savedDraft');
-  if(this.groups) {
+  console.log(this.groups.length);
+  console.log(this.teamBlast);
+  if(this.groups.length > 0) {
+    this.teamBlast = false;
     for (let group of this.groups) {
       console.log(group);
       firebase.database().ref(`/groups/${group}`).push({
@@ -63,14 +70,18 @@ export class CreatePostComponent implements OnInit {
     }
   }
   else if(this.teamBlast) {
-    firebase.database().ref(`/teamBlasts`).push(this.blogPost);
+    firebase.database().ref(`/teamBlasts`).set(this.blogPost).then((data) => {
+      this.router.navigate(['/main']);
+    });
   }
   else {
       firebase.database().ref(`/users/${this.authService.currentUserProfile.userName}/messages`).push(this.blogPost);
     }
+    console.log(this.groups.length);
+    console.log(this.teamBlast);
     this.blogPost = null;
-  this.router.navigate(['/main']);
   }
+  //saves a draft to local storage so you can come back to it later
   onSave() {
     const { title, body } = this.blogForm.value;
     const savedPost = {
@@ -81,6 +92,7 @@ export class CreatePostComponent implements OnInit {
     };
     localStorage.setItem('savedDraft', JSON.stringify(savedPost));
   }
+  //controls toggle data array
   onToggle(groupName) {
     if (groupName === 'Team Blast') {
         this.teamBlast = !this.teamBlast;

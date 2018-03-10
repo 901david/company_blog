@@ -12,6 +12,7 @@ const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 const PORT = process.env.PORT || 3002;
 const firebase = require('firebase');
 
+//Initialize Firebase Database
 firebase.initializeApp({
     apiKey: process.env.apiKey,
     authDomain: process.env.authDomain,
@@ -31,6 +32,7 @@ passport.deserializeUser(function(obj, done) {
     done(null, obj);
 });
 
+//Connect Passport with GitHUb Strategy
 let profileInfo;
 passport.use(new GitHubStrategy({
         clientID: GITHUB_CLIENT_ID,
@@ -49,7 +51,7 @@ passport.use(new GitHubStrategy({
 
 
 
-
+//Create Expres App/Middlware implementations
 const app = express();
 
 app.use(cookieParser());
@@ -64,6 +66,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'companyblog', 'dist')));
 
 
+//Basic Route to Serve up Angular app
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname, 'companyblog', 'dist', 'index.html'));
 });
@@ -92,6 +95,7 @@ app.get('/auth/github/callback',
         bio: profileInfo._json.bio,
         viewed: []
     };
+        //Setting cookie with a 10 hour expiration
         db.ref(`/users/${profileInfo.username}`).update(gitProfile);
         res.cookie('currentUser', {userName: gitProfile.userName, displayName: gitProfile.displayName, id: gitProfile.id}, {expire: 360000 + Date.now()}).redirect('/');
     });
@@ -101,6 +105,8 @@ app.get('/logout', function(req, res){
     res.redirect('/');
 });
 
+
+//Start the server up
 app.listen(PORT, (err) => {
     if(!err) {
         console.log(`Listening on port:  ${PORT}`);

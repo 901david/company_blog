@@ -1,5 +1,6 @@
   <div class="col-xs-12 col-md-3" id="side-bar">
     <div class="row">
+      <div *ngIf="currentUser">
       <div id="profile-holder">
         <div class="col-xs-6 user-avatar">
         <img src="{{currentUser.avatar}}" alt="{{currentUser.userName}}" class="circle img-responsive">
@@ -8,6 +9,7 @@
         <div class="col-xs-12">
           <p class="user-title">Welcome {{currentUser.userName}}</p>
         </div>
+      </div>
       </div>
     </div>
 

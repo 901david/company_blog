@@ -17,8 +17,9 @@
                 </div>
               </div>
           </div>
-            <div class="row">
-              <div class="switch">
+          <div class="row">
+            <div class="switch-box col-xs-12">
+              <div class="switch pull-left">
                 <label>
                   QA
                   <input type="checkbox" id="Group1">
@@ -26,7 +27,7 @@
 
                 </label>
               </div>
-              <div class="switch">
+              <div class="switch pull-left">
                 <label>
                   Dev
                   <input type="checkbox">
@@ -34,10 +35,10 @@
 
                 </label>
               </div>
-              <div class="switch">
+              <div class="switch pull-left">
                 <label>
                   Admin
-                  <input type="checkbox" value="checked">
+                  <input type="checkbox" checked="true">
                   <span (click)="onToggle('Admin')" class="lever"></span>
 
                 </label>
@@ -45,8 +46,13 @@
               <div [ngClass]="{'disabled': groups.length > 0, 'clicked': teamBlast}" type="button" (click)="onToggle('Team Blast')" class="btn waves-light waves-effect">Team Blast</div>
 
             </div>
+          </div>
+          <div class="row">
+          <div class="interact-buttons-container col-xs-12">
           <div type="submit" [ngClass]="{'disabled': !blogForm.valid}" (click)="onPost()" class="btn waves-light waves-effect">Post</div>
           <div type="button" (click)="onSave()" class="btn waves-light waves-effect">Save Draft</div>
+          </div>
+          </div>
         </form>
       </div>
     </div>

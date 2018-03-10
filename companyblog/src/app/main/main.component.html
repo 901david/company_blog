@@ -1,15 +1,13 @@
 <div class="container-fluid">
   <div class="col-xs-12" id="mainBar">
-    <div class="col-xs-2 tag-button">
-    <p class="pull-left b-logo">B</p>
-    </div>
     <div class="col-xs-6 col-xs-offset-1">
     <p class="pull-left main-title">Blogtastic</p>
     <p class="clearfix tagline">The blog app keeping companies connected on the daily</p>
   </div>
 </div>
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3 loader" #loading>
+  <ng-template>
+  <div class="row" #loading>
+    <div class="col-xs-6 col-xs-offset-3 loader">
       <div class="preloader-wrapper big active">
         <div class="spinner-layer spinner-blue-only">
           <div class="circle-clipper left">
@@ -22,7 +20,9 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-12" id="main-area" *ngIf="userId; else loading;">
+  </div>
+  </ng-template>
+    <div class="col-xs-12" id="main-area">
 
       <div class="row" materialize>
         <div class="col-xs-10 col-xs-offset-1">

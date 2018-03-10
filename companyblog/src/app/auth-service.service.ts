@@ -3,15 +3,18 @@ import {CookieService} from "ngx-cookie-service";
 import * as firebase from 'firebase';
 import {User} from "./models/user.model";
 import {Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class AuthServiceService {
   isAuthenticated: boolean = false;
   currentUserProfile: User;
 
-  constructor(private cookie: CookieService, private router: Router) {
+  constructor(private cookie: CookieService,
+              private router: Router,
+              private httpClient: HttpClient) {
   }
-
+  //Used by AUthGuard to determine continued cookie expiration check for every route
   confirmedAuthenticated() {
     if (this.cookie.check('currentUser')) {
       return true;
@@ -21,7 +24,7 @@ export class AuthServiceService {
       this.router.navigate(['/']);
     }
     }
-
+  //Sets up redirect from / to dashboard for authenticated user.
   becomeAuthenticated(cookieString) {
       const cleanedObj = this.cookieCleaner(cookieString);
       this.isAuthenticated = true;
@@ -31,12 +34,14 @@ export class AuthServiceService {
         return;
         });
       };
-
+  //logs a user out
   logout() {
     this.isAuthenticated = false;
     this.cookie.delete('currentUser');
+    this.httpClient.get('/logout');
   }
-
+  //Cleans the cookie string that is passed from the Oauth callback route and makes it into
+  //a usable object
   cookieCleaner (cookieString) {
     let currentIndexPosition = 0;
     const userObj = {};

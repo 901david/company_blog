@@ -17,8 +17,10 @@
 }
 .tag-button {
   display: block;
-  background-color: lightsteelblue;
-  font-family: 'Rye', cursive;
+  background-color: rgba(54, 25, 25, .5);
+  /*font-family: 'Rye', cursive;*/
+  font-family: 'Luckiest Guy', cursive;
+
 
 }
 .b-logo {

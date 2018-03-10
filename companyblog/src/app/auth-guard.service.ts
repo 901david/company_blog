@@ -6,6 +6,7 @@ import {AuthServiceService} from "./auth-service.service";
 export class AuthGuardService implements CanActivate{
 
   constructor(private authService: AuthServiceService) { }
+  //Guards all routes by making sure the cookie is not expired.
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.authService.confirmedAuthenticated();
   }

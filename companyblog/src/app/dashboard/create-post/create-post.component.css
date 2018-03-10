@@ -4,6 +4,7 @@
   border-radius: 5%;
   padding: 3%;
   background-color: white;
+  margin-top: 5%;
 }
 #main-view {
   background-color: steelblue;
@@ -16,4 +17,15 @@
 .clicked {
   background-color: lime;
   border-color: black;
+}
+.switch-box {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.interact-buttons-container {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 3%;
 }

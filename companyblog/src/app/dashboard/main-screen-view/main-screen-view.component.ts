@@ -1,7 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {User} from "../../models/user.model";
 import {MessageServiceService} from "../../message-service.service";
 import {Subject} from "rxjs/Subject";
+
 @Component({
   selector: 'app-main-screen-view',
   templateUrl: './main-screen-view.component.html',
@@ -11,7 +12,7 @@ export class MainScreenViewComponent implements OnInit {
   currentTeam: User[];
   groupMessages: {};
   modalStatus: boolean = false;
-  currentlySelectedPost: {};
+  @Output() currentlySelectedPost = new Subject<Object>();
   markdown: string = '### Hello World\n' +
     '      * a list\n' +
     '      * of items\n' +
@@ -30,19 +31,15 @@ export class MainScreenViewComponent implements OnInit {
       this.groupMessages = data;
     });
   }
+  //controls the click handler for the child modal
   outerOpenModal(person, post) {
     console.log('i work');
-    this.currentlySelectedPost = {
+    this.currentlySelectedPost.next( {
       ...person,
       ...post
-    };
+    });
+    this.modalStatus = true;
     console.log(this.currentlySelectedPost);
     // this.modalStatus = true;
   }
-  closeModal() {
-    this.modalStatus = false;
-  }
-
-
-
 }

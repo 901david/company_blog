@@ -1,3 +1,5 @@
+
+//a model of a BlogPost
 export class BlogPostModel {
   public user: string;
   public user_avatar: string;

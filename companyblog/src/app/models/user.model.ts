@@ -1,3 +1,6 @@
+
+
+//A model of a User
 export class User {
   public id: string;
   public displayName: string;

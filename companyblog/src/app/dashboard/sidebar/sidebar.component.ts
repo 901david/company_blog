@@ -14,7 +14,8 @@ export class SidebarComponent implements OnInit {
   groupPosts: any;
   yourPosts:User;
   groupPostsNewCount: number;
-  constructor(private authService: AuthServiceService, private messageService: MessageServiceService) { }
+  constructor(private authService: AuthServiceService,
+              private messageService: MessageServiceService) { }
 
   ngOnInit() {
     this.currentUser = this.authService.currentUserProfile;
@@ -33,6 +34,7 @@ export class SidebarComponent implements OnInit {
 
 
   }
+  //return my posts only
   myPosts(arr: User[]) {
     const dataArray = arr.slice();
     for (let i = 0; i < dataArray.length; i++) {
@@ -47,6 +49,7 @@ export class SidebarComponent implements OnInit {
     }
     return dataArray;
   }
+  //returns number of new posts
   getGroupPostsNewNumber(arr) {
     let totalNumber = 0;
     if(arr) {

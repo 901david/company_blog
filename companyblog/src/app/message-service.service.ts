@@ -37,6 +37,7 @@ export class MessageServiceService {
       this.groupMessages.next(groupMessages);
     });
   };
+  //A function that takes the messages object and turns it into an array of objects
   filterMessages (obj) {
     const returnArray = [];
     for(let key in obj) {
@@ -48,6 +49,7 @@ export class MessageServiceService {
     }
     return returnArray;
   }
+  //a function that will filter out the read messages and emit that array to the main component
   filterRead(arr) {
 
   }

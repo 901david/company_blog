@@ -92,7 +92,7 @@ app.get('/auth/github/callback',
         bio: profileInfo._json.bio,
         viewed: []
     };
-        db.ref(`/users/${profileInfo.username}`).set(gitProfile);
+        db.ref(`/users/${profileInfo.username}`).update(gitProfile);
         res.cookie('currentUser', {userName: gitProfile.userName, displayName: gitProfile.displayName, id: gitProfile.id}, {expire: 360000 + Date.now()}).redirect('/');
     });
 

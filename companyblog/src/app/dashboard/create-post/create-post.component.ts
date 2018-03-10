@@ -13,8 +13,9 @@ import * as firebase from 'firebase';
 })
 export class CreatePostComponent implements OnInit {
   blogForm: FormGroup;
-  groups: string[] = null;
+  groups: string[] = [];
   blogPost: BlogPostModel;
+  teamBlast: boolean = false;
   constructor(private formBuilder: FormBuilder, private authService: AuthServiceService, private router: Router) { }
 
   ngOnInit() {
@@ -22,6 +23,7 @@ export class CreatePostComponent implements OnInit {
       const savedDraft = JSON.parse(localStorage.getItem('savedDraft'));
       this.initializeForm(savedDraft.title, savedDraft.body);
       this.groups = savedDraft.groups;
+      this.teamBlast = savedDraft.teamBlast;
 
 
     }
@@ -40,6 +42,8 @@ export class CreatePostComponent implements OnInit {
   onPost() {
   const { title, body } = this.blogForm.value;
   this.blogPost = {
+    user: this.authService.currentUserProfile.userName,
+    user_avatar: this.authService.currentUserProfile.avatar,
     title,
     body,
     likes: 0,
@@ -58,6 +62,9 @@ export class CreatePostComponent implements OnInit {
       });
     }
   }
+  else if(this.teamBlast) {
+    firebase.database().ref(`/teamBlasts`).push(this.blogPost);
+  }
   else {
       firebase.database().ref(`/users/${this.authService.currentUserProfile.userName}/messages`).push(this.blogPost);
     }
@@ -69,19 +76,26 @@ export class CreatePostComponent implements OnInit {
     const savedPost = {
       title,
       body,
-      groups: this.groups
+      groups: this.groups,
+      teamBlast: this.teamBlast
     };
     localStorage.setItem('savedDraft', JSON.stringify(savedPost));
   }
   onToggle(groupName) {
-    if(!this.groups) {
-      this.groups = [groupName];
-    }
-    else if(this.groups.indexOf(groupName) !== -1) {
-      this.groups.splice(this.groups.indexOf(groupName), 1);
+    if (groupName === 'Team Blast') {
+        this.teamBlast = !this.teamBlast;
+        console.log(this.teamBlast);
     }
     else {
-      this.groups.push(groupName);
+      if (!this.groups) {
+        this.groups = [groupName];
+      }
+      else if (this.groups.indexOf(groupName) !== -1) {
+        this.groups.splice(this.groups.indexOf(groupName), 1);
+      }
+      else {
+        this.groups.push(groupName);
+      }
     }
   }
 }

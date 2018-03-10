@@ -1,14 +1,43 @@
 <div class="container-fluid">
   <div class="col-xs-12" id="mainBar">
-    <div>
-    <h1 class="pull-left">B</h1>
-    <h3 class="pull-left">Blogtastic</h3>
-    <p class="clearfix">The blog keeping companies connected on the daily</p>
+    <div class="col-xs-2 tag-button">
+    <p class="pull-left b-logo">B</p>
+    </div>
+    <div class="col-xs-6 col-xs-offset-1">
+    <p class="pull-left main-title">Blogtastic</p>
+    <p class="clearfix tagline">The blog app keeping companies connected on the daily</p>
   </div>
 </div>
   <div class="row">
-    <div class="col-xs-12">
-      <p>Blogtastic is designed to help employees express their technical thoughts to their co workers in an easy manner. It allows the user to subscribe to groups and view other users posts.  Simply authorize GitHub to get started using this application.</p>
-      <a href="/auth/github"><div class="waves-effect waves-light btn">Authorize Github</div></a>
+    <div class="col-xs-6 col-xs-offset-3 loader" #loading>
+      <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12" id="main-area" *ngIf="userId; else loading;">
+
+      <div class="row" materialize>
+        <div class="col-xs-10 col-xs-offset-1">
+          <div class="card blue-grey darken-1 card-size">
+            <div class="card-content white-text">
+              <div class="col-xs-8">
+                  <p class="pull-left main-p-text">Blogtastic is designed to help employees express their technical thoughts to their co-workers easily. It allows the user to subscribe to groups and view other user's posts.  Simply login below with your GitHub account to get started</p>
+              </div>
+                <div class="col-xs-3">
+                  <a href="/auth/github" class="pull-left login-button"><div class="waves-effect waves-light btn">Login</div></a>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>

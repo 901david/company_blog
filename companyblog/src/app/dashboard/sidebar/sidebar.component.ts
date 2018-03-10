@@ -21,7 +21,7 @@ export class SidebarComponent implements OnInit {
     this.messageService.getMessages();
     this.messageService.currentTeam.subscribe((data) => {
       const dataObj = this.myPosts(data);
-      console.log('data Object', dataObj);
+      console.log('data Object', dataObj['myPosts'][0]);
       this.teamPosts = dataObj['teamPosts'];
       this.yourPosts = dataObj['myPosts'][0];
     });
@@ -33,20 +33,15 @@ export class SidebarComponent implements OnInit {
 
 
   }
-  // myPosts(arr: User[]) {
-  // for(let user of arr) {
-  //   if(user.userName === this.currentUser.userName) {
-  //     return user;
-  //   }
-  // }
-  // }
   myPosts(arr: User[]) {
     const dataArray = arr.slice();
     for (let i = 0; i < dataArray.length; i++) {
       if (dataArray[i].userName === this.currentUser.userName) {
+        const myPosts = dataArray.splice(i, 1);
+        const teamPosts = dataArray;
         return {
-          myPosts: dataArray.splice(i, 1),
-          teamPosts: dataArray
+          myPosts,
+          teamPosts
         };
       }
     }

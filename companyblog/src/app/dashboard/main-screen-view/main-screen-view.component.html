@@ -3,26 +3,30 @@
   <h2>Most Recent Unread Posts</h2>
   <h3>Team Members</h3>
   <div *ngIf="currentTeam && groupMessages">
-  <ul class="collection" *ngFor="let person of currentTeam;">
+    <div *ngFor="let person of currentTeam;">
+    <h3>{{person.userName}}</h3>
+    <ul class="collection">
     <div *ngFor="let post of person.messages;">
-  <li class="collection-item avatar">
+  <li class="collection-item avatar" (click)="outerOpenModal(person, post)">
     <div style="display:inline-block;">
     <img src="{{person.avatar}}" alt="{{person.displayName}}" class="circle">
+      <div>
     <span class="title">{{post.title}}</span>
-      <span class="title">{{person.userName}}</span>
       <p>{{post.body}}
     </p>
+      </div>
     </div>
     <a href="#!"><i class="small material-icons">fiber_new</i></a>
   </li>
     </div>
   </ul>
+    </div>
   <h3>Groups</h3>
   <div *ngFor="let group of groupMessages;">
     <h5>{{group.groupName}}</h5>
-    <ul class="collection">
+    <ul class="collection" >
     <div *ngFor="let message of group.messages">
-    <li class="collection-item avatar">
+    <li class="collection-item avatar" (click)="outerOpenModal(group, message)">
     <div style="display:inline-block;">
       <img src="{{message.user_avatar}}" alt="{{message.user}}" class="circle">
       <span class="title">{{message.title}}</span>
@@ -36,4 +40,10 @@
 </ul>
   </div>
   </div>
+
+
+
 </div>
+<app-modal-markdown (modalClose) ="closeModal($event)" [currentlySelectedPost]="currentlySelectedPost"></app-modal-markdown>
+
+

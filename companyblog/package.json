@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
     "angular-cookies": "^1.6.9",
+    "angular2-markdown": "^2.2.3",
     "angular2-materialize": "^15.1.10",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",

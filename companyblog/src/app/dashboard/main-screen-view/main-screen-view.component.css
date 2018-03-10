@@ -13,7 +13,11 @@ img {
 #main-screen {
   background-color: steelblue;
   height: 100vh;
+  overflow: auto;
 }
 .likes {
   color: lightblue;
+}
+#modal1 {
+  padding: 5%;
 }

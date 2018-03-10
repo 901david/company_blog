@@ -1,0 +1,11 @@
+<div id="modal1" style="background:black; color:white;" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+  <div class="">
+
+    <markdown>
+      {{currentPost.title}}
+      {{currentPost.body}}
+    </markdown>
+    <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
+
+  </div>
+</div>

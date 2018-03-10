@@ -9,3 +9,11 @@
   background-color: steelblue;
   height: 100vh;
 }
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.clicked {
+  background-color: lime;
+  border-color: black;
+}

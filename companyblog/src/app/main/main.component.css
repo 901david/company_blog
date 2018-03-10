@@ -1,4 +1,49 @@
 #mainBar {
   height:15%;
   background-color: #00b3ee;
+  border-bottom: 3px solid black;
+}
+.loader {
+  margin-top: 10%;
+}
+#main-area {
+  padding-top: 5%;
+  height:100vh;
+  background-color: #2b669a;
+}
+.main-title {
+  margin-left: 30%;
+  /*margin-top: 5%;*/
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 55px;
+}
+.tagline {
+  margin-top: 5%;
+  margin-left: 15%;
+  font-family: 'Handlee', cursive;
+  font-size: 20px;
+}
+.tag-button {
+  display: block;
+  background-color: lightsteelblue;
+  font-family: 'Rye', cursive;
+
+}
+.b-logo {
+  font-size: 90px;
+  margin-left: 25%;
+}
+.container-fluid {
+  padding:0;
+  margin:0;
+}
+.card-size {
+  overflow: auto;
+  padding:5%;
+}
+.main-p-text {
+  font-size: 18px;
+}
+.login-button {
+  margin-top: 17%;
 }

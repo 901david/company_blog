@@ -12,7 +12,7 @@ export class MessageServiceService {
   constructor() { }
   getMessages() {
     //handles getting user messages
-    firebase.database().ref(`/users`).once('value').then( (snap) => {
+    firebase.database().ref(`/users`).on('value', (snap) => {
       const team = snap.val();
       const teamArray = [];
       for(let user in team) {
@@ -25,7 +25,7 @@ export class MessageServiceService {
 
     });
     //handles getting group messages
-    firebase.database().ref('/groups').once('value').then((snap) => {
+    firebase.database().ref('/groups').on('value',(snap) => {
       const groupMessages = [];
       const groupObj = snap.val();
       for(let key in groupObj) {

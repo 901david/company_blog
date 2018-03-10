@@ -21,6 +21,8 @@ import {AuthServiceService} from "./auth-service.service";
 import {AuthGuardService} from "./auth-guard.service";
 import {MessageServiceService} from "./message-service.service";
 import * as firebase from "firebase";
+import {MarkdownModule} from "angular2-markdown";
+import { ModalMarkdownComponent } from './dashboard/modal-markdown/modal-markdown.component';
 
 @NgModule({
   declarations: [
@@ -34,10 +36,12 @@ import * as firebase from "firebase";
     CreatePostComponent,
     MainScreenViewComponent,
     TeamPostsComponent,
+    ModalMarkdownComponent,
   ],
   imports: [
     MaterializeModule,
     BrowserModule,
+    MarkdownModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule

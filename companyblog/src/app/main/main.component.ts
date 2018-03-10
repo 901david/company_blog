@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     if(this.cookies.check('currentUser')) {
       this.authService.becomeAuthenticated(this.cookies.get('currentUser'));
-
+        this.userId = this.authService.currentUserProfile.id;
     }
 
   }

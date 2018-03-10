@@ -1,0 +1,42 @@
+{
+  "name": "company_blog",
+  "version": "1.0.0",
+  "description": "This is a mock internal blog for a company to use to allow employees to interact in a blog setting internally using GitHub OAuth",
+  "main": "apiroutes.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "chai": "^4.1.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "express-partials": "^0.3.0",
+    "firebase": "^4.10.1",
+    "jquery": "^3.3.1",
+    "method-override": "^2.3.10",
+    "node-fetch": "^2.1.1",
+    "passport-github2": "^0.1.11",
+    "passport": "^0.4.0",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/901david/company_blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/901david/company_blog/issues"
+  },
+  "homepage": "https://github.com/901david/company_blog#readme"
+}

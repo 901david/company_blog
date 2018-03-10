@@ -2,50 +2,38 @@
   <div routerLink="create" class="btn waves-effect waves-light pull-right"><i class="large material-icons">add</i>Create New Post</div>
   <h2>Most Recent Unread Posts</h2>
   <h3>Team Members</h3>
-  <ul class="collection">
+  <div *ngIf="currentTeam && groupMessages">
+  <ul class="collection" *ngFor="let person of currentTeam;">
+    <div *ngFor="let post of person.messages;">
   <li class="collection-item avatar">
     <div style="display:inline-block;">
-    <img src="https://avatars2.githubusercontent.com/u/26396882?s=400&u=b8a70e57d3d5fe7a0ba3e5bd35f6e6484b88ce5c&v=4" alt="" class="circle">
-    <span class="title">Blog Title</span>
-      <span class="title">Github Name</span>
-      <p>Trucated text if it is too long...
+    <img src="{{person.avatar}}" alt="{{person.displayName}}" class="circle">
+    <span class="title">{{post.title}}</span>
+      <span class="title">{{person.userName}}</span>
+      <p>{{post.body}}
     </p>
     </div>
     <a href="#!"><i class="small material-icons">fiber_new</i></a>
   </li>
-  <li class="collection-item avatar">
-    <div style="display:inline-block;">
-      <img src="https://avatars2.githubusercontent.com/u/26396882?s=400&u=b8a70e57d3d5fe7a0ba3e5bd35f6e6484b88ce5c&v=4" alt="" class="circle">
-      <span class="title">Blog Title</span>
-      <span class="title">Github Name</span>
-      <p>Trucated text if it is too long...
-      </p>
     </div>
-    <a href="#!"><i class="small material-icons">fiber_new</i></a>
-    <span class="badge red likes">4 Likes</span>
-  </li>
   </ul>
   <h3>Groups</h3>
-  <ul class="collection">
-  <li class="collection-item avatar">
+  <div *ngFor="let group of groupMessages;">
+    <h5>{{group.groupName}}</h5>
+    <ul class="collection">
+    <div *ngFor="let message of group.messages">
+    <li class="collection-item avatar">
     <div style="display:inline-block;">
-      <img src="https://avatars2.githubusercontent.com/u/26396882?s=400&u=b8a70e57d3d5fe7a0ba3e5bd35f6e6484b88ce5c&v=4" alt="" class="circle">
-      <span class="title">Blog Title</span>
-      <span class="title">Github Name</span>
-      <p>Trucated text if it is too long...
+      <img src="{{message.user_avatar}}" alt="{{message.user}}" class="circle">
+      <span class="title">{{message.title}}</span>
+      <span class="title">{{message.user}}</span>
+      <p>{{message.body}}
       </p>
     </div>
     <a href="#!"><i class="small material-icons">fiber_new</i></a>
   </li>
-  <li class="collection-item avatar">
-    <div style="display:inline-block;">
-      <img src="https://avatars2.githubusercontent.com/u/26396882?s=400&u=b8a70e57d3d5fe7a0ba3e5bd35f6e6484b88ce5c&v=4" alt="" class="circle">
-      <span class="title">Blog Title</span>
-      <span class="title">Github Name</span>
-      <p>Trucated text if it is too long...
-      </p>
     </div>
-    <a href="#!"><i class="small material-icons">fiber_new</i></a>
-  </li>
 </ul>
+  </div>
+  </div>
 </div>

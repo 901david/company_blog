@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule, OnInit} from '@angular/core';
 
 
 import { AppComponent } from './app.component';
@@ -19,6 +19,8 @@ import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 import { CookieService } from 'ngx-cookie-service';
 import {AuthServiceService} from "./auth-service.service";
 import {AuthGuardService} from "./auth-guard.service";
+import {MessageServiceService} from "./message-service.service";
+import * as firebase from "firebase";
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import {AuthGuardService} from "./auth-guard.service";
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [FormBuilder, CookieService, AuthServiceService, AuthGuardService],
+  providers: [FormBuilder, CookieService, AuthServiceService, AuthGuardService, MessageServiceService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule{
+
+}

@@ -81,14 +81,14 @@ app.get('/auth/github',
 app.get('/auth/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
-
+    console.log(profileInfo);
     const gitProfile = {
         id: profileInfo.id,
         displayName: profileInfo.displayName,
         userName: profileInfo.username,
         profileUrl: profileInfo.profileUrl,
-        email: profileInfo.emails[0].value ? profileInfo.emails[0].value : '',
-        avatar: profileInfo.photos[0].value ? profileInfo.photos[0].value : '',
+        email: profileInfo.emails ? profileInfo.emails[0].value : '',
+        avatar: profileInfo.photos ? profileInfo.photos[0].value : '',
         bio: profileInfo._json.bio,
         viewed: []
     };

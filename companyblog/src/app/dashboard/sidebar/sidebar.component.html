@@ -1,32 +1,50 @@
   <div class="col-xs-12 col-md-3" id="side-bar">
     <div class="row">
       <div id="profile-holder">
-        <img src="" alt="">
-        <p>Your Github Name</p>
+        <div class="col-xs-6 user-avatar">
+        <img src="{{currentUser.avatar}}" alt="{{currentUser.userName}}" class="circle img-responsive">
+
+      </div>
+        <div class="col-xs-12">
+          <p class="user-title">Welcome {{currentUser.userName}}</p>
+        </div>
       </div>
     </div>
+
+    <div *ngIf="yourPosts && teamPosts && groupPostsNewCount">
     <ul materialize="collapsible" data-collapsible="accordion">
       <li>
         <div class="collapsible-header">
           Your Posts
-          <span class="new badge">4</span>
         </div>
-        <a routerLink="yourposts">View All</a>
-
         <div class="collapsible-body">
-          <!--ng for with links here/-->
+          <p *ngFor="let post of yourPosts.messages">{{post.title}}</p>
         </div>
       </li>
       <li>
         <div class="collapsible-header">
           Team Member Posts
-          <span class="new badge">4</span>
+          <span class="new badge">{{teamPosts ? teamPosts.length : 0}}</span>
         </div>
-        <a routerLink="teamposts">View All</a>
 
         <div class="collapsible-body">
+          <ul materialize="collapsible" data-collapsible="accordion">
 
-          <!--ng for with links here/-->
+            <li *ngFor="let user of teamPosts;">
+              <div class="collapsible-header">
+                {{user.userName}}
+                <span class="new badge">{{user.messages.length}}</span>
+              </div>
+
+              <div class="collapsible-body">
+                <p *ngFor="let message of user.messages;">{{message.title}}</p>
+
+
+              </div>
+            </li>
+          </ul>
+
+
 
         </div>
       </li>
@@ -35,13 +53,26 @@
           Groups Posts
           <span class="new badge">4</span>
         </div>
-        <a routerLink="groupposts">View All</a>
 
         <div class="collapsible-body">
+          <ul materialize="collapsible" data-collapsible="accordion">
 
-          <!--ng for with links here/-->
+          <li *ngFor="let group of groupPosts;">
+        <div class="collapsible-header">
+          {{group.groupName}}
+          <span class="new badge">{{group.messages.length}}</span>
+        </div>
+
+        <div class="collapsible-body">
+          <p *ngFor="let message of group.messages;">{{message.title}}</p>
+
+
+        </div>
+      </li>
+          </ul>
 
         </div>
       </li>
     </ul>
-  </div>
+    </div>
+

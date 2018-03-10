@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {BlogPostModel} from "../../models/blog-post.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AuthServiceService} from "../../auth-service.service";
+import {Router} from "@angular/router";
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-create-post',
@@ -12,7 +15,7 @@ export class CreatePostComponent implements OnInit {
   blogForm: FormGroup;
   groups: string[] = null;
   blogPost: BlogPostModel;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthServiceService, private router: Router) { }
 
   ngOnInit() {
     if(localStorage.getItem('savedDraft')){
@@ -25,6 +28,7 @@ export class CreatePostComponent implements OnInit {
     else {
       this.initializeForm();
     }
+
     console.log(this.groups);
   }
   initializeForm(titleText = '', bodyText = '') {
@@ -44,6 +48,21 @@ export class CreatePostComponent implements OnInit {
   }
   console.log(this.blogPost);
   localStorage.removeItem('savedDraft');
+  if(this.groups) {
+    for (let group of this.groups) {
+      console.log(group);
+      firebase.database().ref(`/groups/${group}`).push({
+        ...this.blogPost,
+        user: this.authService.currentUserProfile.userName,
+        user_avatar: this.authService.currentUserProfile.avatar
+      });
+    }
+  }
+  else {
+      firebase.database().ref(`/users/${this.authService.currentUserProfile.userName}/messages`).push(this.blogPost);
+    }
+    this.blogPost = null;
+  this.router.navigate(['/main']);
   }
   onSave() {
     const { title, body } = this.blogForm.value;

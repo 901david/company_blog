@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
   currentUser: User;
   teamPosts: User[];
   groupPosts: any;
+  teamBlastPosts: any;
   yourPosts:User;
   groupPostsNewCount: number;
   constructor(private authService: AuthServiceService,
@@ -21,14 +22,19 @@ export class SidebarComponent implements OnInit {
     this.currentUser = this.authService.currentUserProfile;
     this.messageService.getMessages();
     this.messageService.currentTeam.subscribe((data) => {
-      const dataObj = this.myPosts(data);
-      console.log('data Object', dataObj['myPosts'][0]);
-      this.teamPosts = dataObj['teamPosts'];
-      this.yourPosts = dataObj['myPosts'][0];
+      if(data) {
+        const dataObj = this.myPosts(data);
+        this.teamPosts = dataObj['teamPosts'];
+        this.yourPosts = dataObj['myPosts'][0];
+      }
+
     });
     this.messageService.groupMessages.subscribe((data) => {
         this.groupPosts = data;
-        this.groupPostsNewCount = this.getGroupPostsNewNumber(this.groupPosts);
+      this.groupPostsNewCount = this.messageService.unreadFilterNumber(this.currentUser.userName, data);
+    });
+    this.messageService.teamMessages.subscribe((data) => {
+      this.teamBlastPosts = data;
     });
 
 
@@ -49,16 +55,16 @@ export class SidebarComponent implements OnInit {
     }
     return dataArray;
   }
-  //returns number of new posts
-  getGroupPostsNewNumber(arr) {
-    let totalNumber = 0;
-    if(arr) {
-        for(let group of arr) {
-          totalNumber += group.messages.length;
-        }
-    }
-    return totalNumber;
-  }
+  // //returns number of new posts
+  // getGroupPostsNewNumber(arr) {
+  //   let totalNumber = 0;
+  //   if(arr) {
+  //       for(let group of arr) {
+  //         totalNumber += group.messages.length;
+  //       }
+  //   }
+  //   return totalNumber;
+  // }
   // getTeamPosts(arr) {
   //   if(arr.length === 0) {
   //     return ['Currently No Posts'];

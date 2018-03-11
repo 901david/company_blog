@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
+import {Injectable, Output} from '@angular/core';
 import {CookieService} from "ngx-cookie-service";
 import * as firebase from 'firebase';
 import {User} from "./models/user.model";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {Subject} from "rxjs/Subject";
 
 @Injectable()
 export class AuthServiceService {
-  isAuthenticated: boolean = false;
+  @Output() isAuthenticated = new Subject<boolean>();
   currentUserProfile: User;
 
   constructor(private cookie: CookieService,
@@ -20,14 +21,14 @@ export class AuthServiceService {
       return true;
     }
     else {
-      this.isAuthenticated = false;
+      this.isAuthenticated.next(false);
       this.router.navigate(['/']);
     }
     }
   //Sets up redirect from / to dashboard for authenticated user.
   becomeAuthenticated(cookieString) {
       const cleanedObj = this.cookieCleaner(cookieString);
-      this.isAuthenticated = true;
+      this.isAuthenticated.next(true);
       firebase.database().ref(`/users/${cleanedObj['userName']}`).once('value').then((snap) => {
           this.currentUserProfile = snap.val();
         this.router.navigate(['/dashboard']);
@@ -36,7 +37,7 @@ export class AuthServiceService {
       };
   //logs a user out
   logout() {
-    this.isAuthenticated = false;
+    this.isAuthenticated.next(false);
     this.cookie.delete('currentUser');
     this.httpClient.get('/logout');
   }

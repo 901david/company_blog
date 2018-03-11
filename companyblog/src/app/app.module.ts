@@ -19,6 +19,8 @@ import {AuthGuardService} from "./auth-guard.service";
 import {MessageServiceService} from "./message-service.service";
 import {MarkdownModule} from "angular2-markdown";
 import { ModalMarkdownComponent } from './dashboard/modal-markdown/modal-markdown.component';
+import { TruncateBlogPipe } from './truncate-blog.pipe';
+import { TruncateSidebarPipe } from './dashboard/truncate-sidebar.pipe';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { ModalMarkdownComponent } from './dashboard/modal-markdown/modal-markdow
     CreatePostComponent,
     MainScreenViewComponent,
     ModalMarkdownComponent,
+    TruncateBlogPipe,
+    TruncateSidebarPipe,
   ],
   imports: [
     MaterializeModule,

@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {MaterializeAction} from "angular2-materialize";
-import {Subscription} from "rxjs/Subscription";
+import {Subject} from "rxjs/Subject";
+import {AuthServiceService} from "../../auth-service.service";
 
 @Component({
   selector: 'app-modal-markdown',
@@ -9,19 +10,20 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class ModalMarkdownComponent implements OnInit {
   modalActions = new EventEmitter<string|MaterializeAction>();
-  currentPost: {};
-  constructor() { }
+  @Input() currentPost: {};
+  @Input() modalNotifier: Subject<boolean>;
+  currentUser: string;
+  constructor(private authService: AuthServiceService) { }
 
   ngOnInit() {
-
-  }
-  @Input()
-  set currentlySelectedPost(data) {
-    data.subscribe((dataObj) => {
-        this.currentPost = dataObj
+    this.modalNotifier.subscribe((value: boolean) => {
+        if(value) {
+          this.openModal();
+        }
     });
-      this.openModal();
+    this.currentUser = this.authService.currentUserProfile.userName;
   }
+
   //controls modal open
   openModal() {
     this.modalActions.emit({action:"modal",params:['open']});

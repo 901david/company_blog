@@ -1,11 +1,38 @@
-<div id="modal1" style="background:black; color:white;" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+<div class="col-xs-12">
+<div id="modal1" style="background:white; color:black;" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
   <div class="">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="row">
+      <div class="col-xs-3">
+        <div class="col-xs-3">
+          <p>Posted By</p>
+        </div>
+        <ng-template #team>
+        <img class="circle avatar img-responsive" src="{{currentPost.user_avatar}}" alt="{{currentPost.userName}}">
+        </ng-template>
+        <img *ngIf="currentPost.avatar; else team;" class="circle avatar img-responsive" src="{{currentPost.avatar}}" alt="{{currentPost.userName}}">
+      </div>
+        <div class="col-xs-3">
+          <a href="{{currentPost.profileUrl}}"><p>{{currentPost.userName}}</p></a>
+        </div>
+      </div>
+    <markdown [data] = "currentPost.title"></markdown>
+    <markdown [data] = "currentPost.body"></markdown>
+    </div>
+    <div class="row" *ngIf="currentUser === currentPost.userName;">
+      <p>Viewed By:</p>
+      <div *ngIf="currentPost.viewedBy">
+        <div *ngFor="let person of currentPost.viewedBy;">
+          <div class="chip" *ngIf="person.user !== currentUser;">
+            <img src="{{person.avatar}}" alt="{{person.user}}">
+            {{person.user}}
+          </div>
+        </div>
 
-    <markdown>
-      {{currentPost.title}}
-      {{currentPost.body}}
-    </markdown>
+      </div>
+    </div>
     <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
 
   </div>
+</div>
 </div>

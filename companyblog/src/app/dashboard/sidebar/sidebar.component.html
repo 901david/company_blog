@@ -13,20 +13,58 @@
       </div>
     </div>
 
-    <div *ngIf="yourPosts && teamPosts && groupPostsNewCount">
+    <div *ngIf="yourPosts && teamPosts">
     <ul materialize="collapsible" data-collapsible="accordion">
       <li>
         <div class="collapsible-header">
           Your Posts
         </div>
         <div class="collapsible-body">
-          <p *ngFor="let post of yourPosts.messages">{{post.title}}</p>
+          <ul class="collection" *ngFor="let post of yourPosts.messages;">
+              <li class="collection-item avatar" (click)="outerOpenModal(currentUser.avatar, post, '')">
+                <div style="display:inline-block;">
+                  <img src="{{currentUser.avatar}}" alt="{{currentUser.displayName}}" class="circle">
+                  <p>{{currentUser.displayName}}</p>
+                  <div class="col-xs-10">
+                    <span class="title">{{post.title}}</span>
+                    <p>{{post.body | truncateSidebar}}
+                    </p>
+                  </div>
+                </div>
+
+              </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          Team Blast Posts
+          <span class="new badge">1</span>
+        </div>
+
+        <div class="collapsible-body">
+          <ul class="collection" *ngFor="let message of teamBlastPosts;">
+            <li class="collection-item avatar" (click)="outerOpenModal(currentUser.avatar, message, '')">
+              <div style="display:inline-block;">
+                <img src="{{currentUser.avatar}}" alt="{{currentUser.displayName}}" class="circle">
+                <p>{{currentUser.displayName}}</p>
+                <div class="col-xs-10">
+                  <span class="title">{{message.title}}</span>
+                  <p>{{message.body | truncateSidebar}}
+                  </p>
+                </div>
+              </div>
+
+            </li>
+          </ul>
+
+
         </div>
       </li>
       <li>
         <div class="collapsible-header">
           Team Member Posts
-          <span class="new badge">{{teamPosts ? teamPosts.length : 0}}</span>
+          <span class="new badge">{{teamPosts ? teamPosts.length : ''}}</span>
         </div>
 
         <div class="collapsible-body">
@@ -39,8 +77,20 @@
               </div>
 
               <div class="collapsible-body">
-                <p *ngFor="let message of user.messages;">{{message.title}}</p>
+                <ul class="collection" *ngFor="let message of user.messages;">
+                  <li class="collection-item avatar" (click)="outerOpenModal(currentUser.avatar, message, '')">
+                    <div style="display:inline-block;">
+                      <img src="{{currentUser.avatar}}" alt="{{currentUser.displayName}}" class="circle">
+                      <p>{{currentUser.userName}}</p>
+                      <div class="col-xs-10">
+                        <span class="title">{{message.title}}</span>
+                        <p>{{message.body | truncateSidebar}}
+                        </p>
+                      </div>
+                    </div>
 
+                  </li>
+                </ul>
 
               </div>
             </li>
@@ -53,7 +103,8 @@
       <li>
         <div class="collapsible-header">
           Groups Posts
-          <span class="new badge">4</span>
+
+          <span class="new badge">{{groupPostsNewCount}}</span>
         </div>
 
         <div class="collapsible-body">
@@ -66,8 +117,20 @@
         </div>
 
         <div class="collapsible-body">
-          <p *ngFor="let message of group.messages;">{{message.title}}</p>
+          <ul class="collection" *ngFor="let message of group.messages;">
+            <li class="collection-item avatar" (click)="outerOpenModal(currentUser.avatar, message, '')">
+              <div style="display:inline-block;">
+                <img src="{{currentUser.avatar}}" alt="{{currentUser.displayName}}" class="circle">
+                <p>{{currentUser.displayName}}</p>
+                <div class="col-xs-10">
+                  <span class="title">{{message.title}}</span>
+                  <p>{{message.body | truncateSidebar}}
+                  </p>
+                </div>
+              </div>
 
+            </li>
+          </ul>
 
         </div>
       </li>

@@ -66,17 +66,24 @@ export class CreatePostComponent implements OnInit {
         ...this.blogPost,
         user: this.authService.currentUserProfile.userName,
         user_avatar: this.authService.currentUserProfile.avatar
+      }).then(() => {
+        this.router.navigate(['/main']);
+
       });
     }
   }
   else if(this.teamBlast) {
-    firebase.database().ref(`/teamBlasts`).set(this.blogPost).then((data) => {
+    firebase.database().ref(`/teamBlasts`).push(this.blogPost).then((data) => {
       this.router.navigate(['/main']);
     });
   }
   else {
-      firebase.database().ref(`/users/${this.authService.currentUserProfile.userName}/messages`).push(this.blogPost);
-    }
+      firebase.database().ref(`/users/${this.authService.currentUserProfile.userName}/messages`).push(this.blogPost).then(() => {
+        this.router.navigate(['/main']);
+
+      });
+
+  }
     console.log(this.groups.length);
     console.log(this.teamBlast);
     this.blogPost = null;

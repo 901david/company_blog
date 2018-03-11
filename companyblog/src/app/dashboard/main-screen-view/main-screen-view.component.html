@@ -6,22 +6,37 @@
   </div>
 
   <h2 style="text-align: center;">Most Recent Unread Posts</h2>
+  <h3 style="text-decoration: underline">Team Blasts</h3>
+    <ul class="collection" >
+      <div *ngFor="let message of teamMessages;">
+        <li class="collection-item avatar" (click)="outerOpenModal('Group', message, {type: 'Team Blast', name: ''})">
+          <div style="display:inline-block;">
+            <img src="{{message.user_avatar}}" alt="{{message.user}}" class="circle">
+            <span class="title">{{message.title}}</span>
+            <span class="title">{{message.user}}</span>
+            <p>{{message.body}}
+            </p>
+          </div>
+          <i class="small material-icons" (click)="markAsRead('Team Blast', message.fid, currentUser.userName, currentUser.avatar_url, message.user)">fiber_new</i>
+        </li>
+      </div>
+    </ul>
   <h3 style="text-decoration: underline">Team Members</h3>
   <div *ngIf="currentTeam && groupMessages">
     <div *ngFor="let person of currentTeam;">
-    <h5 style="font-style: italic">{{person.userName}}</h5>
+    <h5 style="font-style: italic" *ngIf="person.messages;">{{person.userName}}</h5>
     <ul class="collection">
     <div *ngFor="let post of person.messages;">
-  <li class="collection-item avatar" (click)="outerOpenModal(person, post)">
+  <li class="collection-item avatar" (click)="outerOpenModal(person, post, '')">
     <div style="display:inline-block;">
     <img src="{{person.avatar}}" alt="{{person.displayName}}" class="circle">
       <div>
     <span class="title">{{post.title}}</span>
-      <p>{{post.body}}
+      <p>{{post.body | truncateBlog}}
     </p>
       </div>
     </div>
-    <a href="#!"><i class="small material-icons">fiber_new</i></a>
+    <i class="small material-icons" (click)="markAsRead('Group', message.fid, group.groupName, currentUser.avatar_url, post.user)">fiber_new</i>
   </li>
     </div>
   </ul>
@@ -31,7 +46,7 @@
     <h5 style="font-style: italic">{{group.groupName}}</h5>
     <ul class="collection" >
     <div *ngFor="let message of group.messages">
-    <li class="collection-item avatar" (click)="outerOpenModal(group, message)">
+    <li class="collection-item avatar" (click)="outerOpenModal(group, message, {type: 'Group', name: group.groupName})">
     <div style="display:inline-block;">
       <img src="{{message.user_avatar}}" alt="{{message.user}}" class="circle">
       <span class="title">{{message.title}}</span>
@@ -39,7 +54,7 @@
       <p>{{message.body}}
       </p>
     </div>
-    <a href="#!"><i class="small material-icons">fiber_new</i></a>
+    <i class="small material-icons" (click)="markAsRead('Group', message.fid, group.groupName)">fiber_new</i>
   </li>
     </div>
 </ul>
@@ -50,6 +65,6 @@
 
 </div>
 <div *ngIf="modalStatus">
-<app-modal-markdown (currentlySelectedPost)="currentlySelectedPost"></app-modal-markdown>
+<app-modal-markdown [currentPost]="currentlySelectedPost" [modalNotifier]= "modalNotifier"></app-modal-markdown>
 </div>
 

@@ -2,24 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d6511f-183d-4c21-8e16-a5b5e2e96fd3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/app.module.ts" afterPath="$PROJECT_DIR$/companyblog/src/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/auth-service.service.ts" afterPath="$PROJECT_DIR$/companyblog/src/app/auth-service.service.ts" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/create-post/create-post.component.html" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/create-post/create-post.component.html" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/create-post/create-post.component.ts" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/create-post/create-post.component.ts" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.html" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.html" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.ts" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.ts" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.css" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.css" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.html" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.html" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.ts" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.ts" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.css" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.css" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.html" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.html" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.ts" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.ts" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change beforePath="$PROJECT_DIR$/companyblog/src/app/main/main.component.html" afterPath="$PROJECT_DIR$/companyblog/src/app/main/main.component.html" />
       <change beforePath="$PROJECT_DIR$/companyblog/src/app/main/main.component.ts" afterPath="$PROJECT_DIR$/companyblog/src/app/main/main.component.ts" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/message-service.service.ts" afterPath="$PROJECT_DIR$/companyblog/src/app/message-service.service.ts" />
       <change beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change beforePath="$PROJECT_DIR$/server___.js" afterPath="$PROJECT_DIR$/server___.js" />
-      <change beforePath="$PROJECT_DIR$/test/test.js" afterPath="$PROJECT_DIR$/test/test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,96 +20,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/companyblog/src/app/main/main.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth-service.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/companyblog/src/app/auth-service.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="30" column="37" lean-forward="false" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/companyblog/src/app/main/main.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" column="74" lean-forward="false" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main-screen-view.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="51" column="10" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main-screen-view.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="26" column="58" lean-forward="false" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create-post.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/create-post/create-post.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create-post.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/create-post/create-post.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1408">
-              <caret line="69" column="36" lean-forward="false" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="message-service.service.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/companyblog/src/app/message-service.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2684">
-              <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="39" column="72" lean-forward="false" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="72" />
-              <folding />
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="286">
+                <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -167,7 +73,6 @@
         <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/dashboard.component.html" />
         <option value="$PROJECT_DIR$/companyblog/src/app/app-routing.ts" />
         <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/banner/banner.component.html" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.css" />
         <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/create-post/create-post.component.html" />
         <option value="$PROJECT_DIR$/companyblog/src/app/truncate-blog.pipe.ts" />
@@ -182,11 +87,12 @@
         <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.html" />
         <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.ts" />
         <option value="$PROJECT_DIR$/companyblog/src/app/auth-service.service.ts" />
-        <option value="$PROJECT_DIR$/companyblog/src/app/main/main.component.ts" />
-        <option value="$PROJECT_DIR$/companyblog/src/app/main/main.component.html" />
         <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/create-post/create-post.component.ts" />
         <option value="$PROJECT_DIR$/companyblog/src/app/message-service.service.ts" />
+        <option value="$PROJECT_DIR$/companyblog/src/app/main/main.component.ts" />
+        <option value="$PROJECT_DIR$/companyblog/src/app/main/main.component.html" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -273,7 +179,10 @@
             <path>
               <item name="company_blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="company_blog" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="companyblog" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -322,12 +231,12 @@
       <updated>1520289764009</updated>
       <workItem from="1520289765866" duration="45399000" />
       <workItem from="1520484633007" duration="6933000" />
-      <workItem from="1520521251464" duration="71785000" />
+      <workItem from="1520521251464" duration="74057000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124117000" />
+    <option name="totallyTimeSpent" value="126389000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1402" height="1050" extended-state="6" />
@@ -609,17 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="844">
-            <caret line="29" column="6" lean-forward="false" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/companyblog/src/app/truncate-blog.pipe.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -684,22 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="58" lean-forward="false" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/create-post/create-post.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
@@ -734,19 +616,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/companyblog/src/app/main/main.component.ts">
+    <entry file="file://$PROJECT_DIR$/companyblog/src/app/message-service.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/companyblog/src/app/main/main.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="74" lean-forward="false" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
-          <folding />
+        <state relative-caret-position="2684">
+          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#49#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -758,21 +634,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/create-post/create-post.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="694">
+          <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="58" lean-forward="false" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="51" column="10" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#0#48#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="39" column="72" lean-forward="false" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -784,13 +668,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/companyblog/src/app/message-service.service.ts">
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2684">
-          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="858">
+          <caret line="39" column="72" lean-forward="false" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/companyblog/src/app/main/main.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/companyblog/src/app/main/main.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="286">
+            <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

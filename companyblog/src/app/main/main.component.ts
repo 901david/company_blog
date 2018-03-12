@@ -18,6 +18,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     if(this.cookies.check('currentUser')) {
+      this.userAuthed = true;
       this.authService.becomeAuthenticated(this.cookies.get('currentUser'));
 
     }

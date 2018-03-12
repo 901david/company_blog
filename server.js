@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 const express = require('express');
 const passport = require('passport');
 const session = require('express-session');
@@ -103,6 +103,10 @@ app.get('/auth/github/callback',
 app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
+});
+
+app.get('*', function(req, res){
+    res.sendFile(path.join(__dirname, 'companyblog', 'dist', 'index.html'));
 });
 
 

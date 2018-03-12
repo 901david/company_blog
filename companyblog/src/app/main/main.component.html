@@ -22,7 +22,7 @@
     </div>
   </div>
   </ng-template>
-    <div class="col-xs-12" id="main-area" *ngIf="userAuthed; else loading;">
+    <div class="col-xs-12" id="main-area" *ngIf="!userAuthed; else loading;">
 
       <div class="row" materialize>
         <div class="col-xs-10 col-xs-offset-1">

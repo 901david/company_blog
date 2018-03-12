@@ -2,6 +2,7 @@ import {Component, OnInit, Output} from '@angular/core';
 import {AuthServiceService} from "../../auth-service.service";
 import {User} from "../../models/user.model";
 import {MessageServiceService} from "../../message-service.service";
+import {Subject} from "rxjs/Subject";
 
 @Component({
   selector: 'app-sidebar',
@@ -15,6 +16,7 @@ export class SidebarComponent implements OnInit {
   teamBlastPosts: any;
   yourPosts:User;
   groupPostsNewCount: number;
+  sidebarNotifier = new Subject<any>();
   constructor(private authService: AuthServiceService,
               private messageService: MessageServiceService) { }
 
@@ -54,6 +56,9 @@ export class SidebarComponent implements OnInit {
       }
     }
     return dataArray;
+  }
+  outerOpenModal(person, post, type) {
+    this.sidebarNotifier.next({person, post, type});
   }
   // //returns number of new posts
   // getGroupPostsNewNumber(arr) {

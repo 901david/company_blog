@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../../models/user.model";
 import {MessageServiceService} from "../../message-service.service";
 import {Subject} from "rxjs/Subject";
@@ -16,6 +16,8 @@ export class MainScreenViewComponent implements OnInit {
   modalStatus: boolean = false;
   teamMessages: any;
   modalNotifier = new Subject<boolean>();
+  @Input() sideBarNotifier: Subject<any>;
+
   currentlySelectedPost: {} = {
     avatar: "https://avatars1.githubusercontent.com/u/26396882?v=4",
     bio: "I am a full-stack developer with a heavy interest in creating and consuming API's as well as creating unique and logical UI/UX.",
@@ -53,6 +55,9 @@ export class MainScreenViewComponent implements OnInit {
     });
     console.log(this.teamMessages);
     this.currentUser = this.authService.currentUserProfile;
+    this.sideBarNotifier.subscribe((data) => {
+      this.outerOpenModal(data.person, data.post, data.type);
+    });
   }
   //controls the click handler for the child modal & passes the post/person data
   outerOpenModal(person, post, type) {

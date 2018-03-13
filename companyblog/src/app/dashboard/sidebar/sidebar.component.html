@@ -46,12 +46,12 @@
           <ul class="collection" *ngFor="let message of teamBlastPosts;">
             <li class="collection-item avatar" (click)="outerOpenModal(currentUser.avatar, message, '')">
               <div style="display:inline-block;">
-                <img src="{{currentUser.avatar}}" alt="{{currentUser.displayName}}" class="circle">
-                <p>{{currentUser.displayName}}</p>
-                <div class="col-xs-10">
+                <img src="{{message.user_avatar}}" alt="{{message.user}}" class="circle">
+                <p>{{message.user}}</p>
+                <div class="col-xs-12">
                   <span class="title">{{message.title}}</span>
-                  <p>{{message.body | truncateSidebar}}
-                  </p>
+                  <!--<p>{{message.body | truncateSidebar}}-->
+                  <!--</p>-->
                 </div>
               </div>
 
@@ -75,17 +75,27 @@
                 {{user.userName}}
                 <span class="new badge">{{user.messages.length}}</span>
               </div>
+              <ng-template #nomessages>
+                <div class="collapsible-body">
+                  <ul class="collection">
+                    <li class="collection-item">
+                      <p>No Messages Currently</p>
 
-              <div class="collapsible-body">
+                    </li>
+                  </ul>
+
+                </div>
+              </ng-template>
+              <div class="collapsible-body" *ngIf="user.messages.length > 0; else nomessages">
                 <ul class="collection" *ngFor="let message of user.messages;">
                   <li class="collection-item avatar" (click)="outerOpenModal(currentUser.avatar, message, '')">
                     <div style="display:inline-block;">
-                      <img src="{{currentUser.avatar}}" alt="{{currentUser.displayName}}" class="circle">
-                      <p>{{currentUser.userName}}</p>
-                      <div class="col-xs-10">
+                      <img src="{{message.user_avatar}}" alt="{{message.user}}" class="circle">
+                      <p>{{message.user}}</p>
+                      <div class="col-xs-12">
                         <span class="title">{{message.title}}</span>
-                        <p>{{message.body | truncateSidebar}}
-                        </p>
+                        <!--<p>{{message.body | truncateSidebar}}-->
+                        <!--</p>-->
                       </div>
                     </div>
 
@@ -120,12 +130,12 @@
           <ul class="collection" *ngFor="let message of group.messages;">
             <li class="collection-item avatar" (click)="outerOpenModal(currentUser.avatar, message, '')">
               <div style="display:inline-block;">
-                <img src="{{currentUser.avatar}}" alt="{{currentUser.displayName}}" class="circle">
-                <p>{{currentUser.displayName}}</p>
-                <div class="col-xs-10">
+                <img src="{{message.user_avatar}}" alt="{{message.user}}" class="circle">
+                <p>{{message.user}}</p>
+                <div class="col-xs-12">
                   <span class="title">{{message.title}}</span>
-                  <p>{{message.body | truncateSidebar}}
-                  </p>
+                  <!--<p>{{message.body | truncateSidebar}}-->
+                  <!--</p>-->
                 </div>
               </div>
 

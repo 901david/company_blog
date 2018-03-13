@@ -55,9 +55,9 @@ export class MainScreenViewComponent implements OnInit {
     });
     console.log(this.teamMessages);
     this.currentUser = this.authService.currentUserProfile;
-    this.sideBarNotifier.subscribe((data) => {
-      this.outerOpenModal(data.person, data.post, data.type);
-    });
+    // this.sideBarNotifier.subscribe((data) => {
+    //   this.outerOpenModal(data.person, data.post, data.type);
+    // });
   }
   //controls the click handler for the child modal & passes the post/person data
   outerOpenModal(person, post, type) {

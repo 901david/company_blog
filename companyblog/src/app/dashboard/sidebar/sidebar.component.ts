@@ -39,7 +39,6 @@ export class SidebarComponent implements OnInit {
       this.teamBlastPosts = data;
     });
 
-    console.log(this.teamPosts);
 
   }
   //return my posts only

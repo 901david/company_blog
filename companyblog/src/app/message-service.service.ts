@@ -53,6 +53,7 @@ export class MessageServiceService {
   //handles control of the viewed By Column on firebase database
   messageViewHandler(fid, user, author, viewedBy, type, avatar) {
     const inViewedBy = this.unreadFilterNumber(user, viewedBy);
+    console.log('have I view this already', inViewedBy);
     const newViewedBy = inViewedBy > 0 ? [...viewedBy] : [...viewedBy, {user, avatar}];
       if(type.type === 'Team Blast') {
         firebase.database().ref(`/teamBlasts/${fid}`).update({viewedBy: newViewedBy});

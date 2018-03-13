@@ -32,13 +32,6 @@ export class MainScreenViewComponent implements OnInit {
     title: "Markdown Test",
     userName: "901david"
   };
-  markdown: string = '### Hello World\n' +
-    '      * a list\n' +
-    '      * of items\n' +
-    '      ```\n' +
-    '      function(str){\n' +
-    '        return str;\n' +
-    '      };\n';
 
   constructor(private messageService: MessageServiceService,
               private authService: AuthServiceService) { }

@@ -32,6 +32,13 @@ export class MainScreenViewComponent implements OnInit {
     title: "Markdown Test",
     userName: "901david"
   };
+  markdown: string = '### Hello World\n' +
+    '      * a list\n' +
+    '      * of items\n' +
+    '      ```\n' +
+    '      function(str){\n' +
+    '        return str;\n' +
+    '      };\n';
 
   constructor(private messageService: MessageServiceService,
               private authService: AuthServiceService) { }
@@ -48,9 +55,9 @@ export class MainScreenViewComponent implements OnInit {
     });
     console.log(this.teamMessages);
     this.currentUser = this.authService.currentUserProfile;
-    // this.sideBarNotifier.subscribe((data) => {
-    //   this.outerOpenModal(data.person, data.post, data.type);
-    // });
+    this.sideBarNotifier.subscribe((data) => {
+      this.outerOpenModal(data.person, data.post, data.type);
+    });
   }
   //controls the click handler for the child modal & passes the post/person data
   outerOpenModal(person, post, type) {

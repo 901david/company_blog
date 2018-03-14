@@ -40,6 +40,7 @@ export class SidebarComponent implements OnInit {
     });
 
 
+
   }
   //return my posts only
   myPosts(arr: User[]) {

@@ -4,21 +4,10 @@
       <div routerLink="create" class="btn waves-effect waves-light pull-right post-button"><i class="large material-icons">add</i>Create New Post</div>
     </div>
   </div>
-  <!--This is not working for some reason-->
-  <ng-template #nomessages>
-    <div class="collapsible-body">
-      <ul class="collection">
-        <li class="collection-item">
-          <p>No New Messages Currently</p>
 
-        </li>
-      </ul>
-
-    </div>
-  </ng-template>
   <h2 style="text-align: center;">Most Recent Unread Posts</h2>
   <h3 style="text-decoration: underline">Team Blasts</h3>
-    <ul class="collection" *ngIf="teamMessages; else nomessages;">
+    <ul class="collection" >
       <div *ngFor="let message of teamMessages;">
         <li class="collection-item avatar" (click)="outerOpenModal('Group', message, {type: 'Team Blast', name: ''})">
           <div style="display:inline-block;">
@@ -52,11 +41,10 @@
     </div>
   </ul>
     </div>
-
   <h3 style="text-decoration: underline">Groups</h3>
   <div *ngFor="let group of groupMessages;">
     <h5 style="font-style: italic">{{group.groupName}}</h5>
-    <ul class="collection" *ngIf="group.messages; else nomessages">
+    <ul class="collection" >
     <div *ngFor="let message of group.messages">
     <li class="collection-item avatar" (click)="outerOpenModal(group, message, {type: 'Group', name: group.groupName})">
     <div style="display:inline-block;">
@@ -76,7 +64,6 @@
 
 
 </div>
-
 <div *ngIf="modalStatus">
 <app-modal-markdown [currentPost]="currentlySelectedPost" [modalNotifier]= "modalNotifier"></app-modal-markdown>
 </div>

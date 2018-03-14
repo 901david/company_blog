@@ -26,7 +26,8 @@ export class MessageServiceService {
         });
       }
       this.currentTeam.next(teamArray);
-      this.unreadTeamMessages.next(this.filterRead(teamArray, this.authService.currentUserProfile.userName));
+      this.unreadTeamMessages.next(this.filterTeamMembersForUnread(teamArray, this.authService.currentUserProfile.userName));
+      console.log('Here are my team messages',this.filterTeamMembersForUnread(teamArray, this.authService.currentUserProfile.userName));
 
     });
     //handles getting group messagesß
@@ -72,6 +73,14 @@ export class MessageServiceService {
     const newFilteredArray = [];
     for(let group of arr) {
       newFilteredArray.push({groupName: group.groupName, messages: this.filterRead(group.messages, user)});
+    }
+    return newFilteredArray;
+  }
+  //this function will filter teams
+  filterTeamMembersForUnread(arr, user) {
+    const newFilteredArray = [];
+    for(let person of arr) {
+      newFilteredArray.push({...person, messages: this.filterRead(person.messages, user)});
     }
     return newFilteredArray;
   }

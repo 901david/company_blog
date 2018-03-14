@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d6511f-183d-4c21-8e16-a5b5e2e96fd3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.html" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.html" />
-      <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.html" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.html" />
       <change beforePath="$PROJECT_DIR$/companyblog/src/app/message-service.service.ts" afterPath="$PROJECT_DIR$/companyblog/src/app/message-service.service.ts" />
-      <change beforePath="$PROJECT_DIR$/test/test.js" afterPath="$PROJECT_DIR$/test/test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,8 +39,8 @@
       <file leaf-file-name="message-service.service.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/companyblog/src/app/message-service.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="28" column="106" lean-forward="false" selection-start-line="28" selection-start-column="106" selection-end-line="28" selection-end-column="106" />
+            <state relative-caret-position="415">
+              <caret line="28" column="66" lean-forward="false" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -275,12 +271,12 @@
       <workItem from="1520484633007" duration="6933000" />
       <workItem from="1520521251464" duration="75660000" />
       <workItem from="1520971548617" duration="5268000" />
-      <workItem from="1521039113485" duration="5606000" />
+      <workItem from="1521039113485" duration="6305000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138866000" />
+    <option name="totallyTimeSpent" value="139565000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1251" height="1050" extended-state="0" />
@@ -655,8 +651,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/companyblog/src/app/message-service.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="106" lean-forward="false" selection-start-line="28" selection-start-column="106" selection-end-line="28" selection-end-column="106" />
+        <state relative-caret-position="415">
+          <caret line="28" column="66" lean-forward="false" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
           <folding />
         </state>
       </provider>

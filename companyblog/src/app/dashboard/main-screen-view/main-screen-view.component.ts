@@ -16,6 +16,8 @@ export class MainScreenViewComponent implements OnInit {
   modalStatus: boolean = false;
   teamMessages: any;
   modalNotifier = new Subject<boolean>();
+  currentTeamHasNewMessages: boolean = false;
+  groupMessagesContainUnreads: boolean = false;
   @Input() sideBarNotifier: Subject<any>;
 
   currentlySelectedPost: {} = {
@@ -32,13 +34,6 @@ export class MainScreenViewComponent implements OnInit {
     title: "Markdown Test",
     userName: "901david"
   };
-  markdown: string = '### Hello World\n' +
-    '      * a list\n' +
-    '      * of items\n' +
-    '      ```\n' +
-    '      function(str){\n' +
-    '        return str;\n' +
-    '      };\n';
 
   constructor(private messageService: MessageServiceService,
               private authService: AuthServiceService) { }
@@ -46,18 +41,21 @@ export class MainScreenViewComponent implements OnInit {
   ngOnInit() {
     this.messageService.unreadTeamMessages.subscribe((data) => {
       this.currentTeam = data;
+      this.currentTeamHasNewMessages = this.groupMemberHaveAnyUnreads(this.currentTeam);
+
     });
     this.messageService.unreadGroupMessages.subscribe((data) => {
       this.groupMessages = data;
+      console.log(this.groupMessages);
+      this.groupMessagesContainUnreads = this.groupMemberHaveAnyUnreads(this.groupMessages);
     });
     this.messageService.unreadTeamBlasts.subscribe((data) => {
       this.teamMessages = data;
     });
-    console.log(this.teamMessages);
     this.currentUser = this.authService.currentUserProfile;
-    this.sideBarNotifier.subscribe((data) => {
-      this.outerOpenModal(data.person, data.post, data.type);
-    });
+    // this.sideBarNotifier.subscribe((data) => {
+    //   this.outerOpenModal(data.person, data.post, data.type);
+    // });
   }
   //controls the click handler for the child modal & passes the post/person data
   outerOpenModal(person, post, type) {
@@ -78,6 +76,15 @@ export class MainScreenViewComponent implements OnInit {
 
   markAsRead(type, fid, viewedBy, user, avatar, author) {
     this.messageService.messageViewHandler(fid, user, author, viewedBy, type, avatar);
+  }
+  //This function will determine if any team members have unreads at all
+  groupMemberHaveAnyUnreads(array) {
+    for(let user of array) {
+      if(user['messages'] && user['messages'].length !== 0) {
+        return true;
+      }
+    }
+    return false;
   }
 }
 

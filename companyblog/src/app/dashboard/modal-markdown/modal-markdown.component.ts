@@ -22,11 +22,13 @@ export class ModalMarkdownComponent implements OnInit {
         }
     });
     this.currentUser = this.authService.currentUserProfile.userName;
+    console.log('here is my current user', this.currentUser);
   }
 
   //controls modal open
   openModal() {
     this.modalActions.emit({action:"modal",params:['open']});
+    console.log(this.currentPost);
   }
   //controls modal close
   closeModal() {

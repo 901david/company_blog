@@ -19,7 +19,7 @@
     <markdown [data] = "currentPost.title"></markdown>
     <markdown [data] = "currentPost.body"></markdown>
     </div>
-    <div class="row" *ngIf="currentUser === currentPost.userName;">
+    <div class="row" *ngIf="currentUser === currentPost.user;">
       <p>Viewed By:</p>
       <div *ngIf="currentPost.viewedBy">
         <div *ngFor="let person of currentPost.viewedBy;">

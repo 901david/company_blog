@@ -36,7 +36,6 @@ const filterRead = (arr, user) => {
     for (let item of arr) {
         let flag = false
         for(let itemObj of item.viewedBy) {
-            console.log(itemObj.user, user);
             if(itemObj.user === user) {
                 flag = true;
             }

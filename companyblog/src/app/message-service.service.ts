@@ -26,7 +26,7 @@ export class MessageServiceService {
         });
       }
       this.currentTeam.next(teamArray);
-      this.unreadTeamMessages.next(teamArray);
+      this.unreadTeamMessages.next(this.filterRead(teamArray, this.authService.currentUserProfile.userName));
 
     });
     //handles getting group messagesß
@@ -40,20 +40,21 @@ export class MessageServiceService {
         });
       }
       this.groupMessages.next(groupMessages);
-      this.unreadGroupMessages.next(groupMessages);
+      this.unreadGroupMessages.next(this.filterGroupsForUnread(groupMessages, this.authService.currentUserProfile.userName));
+
     });
     //handles getting team messages
     firebase.database().ref('/teamBlasts').once('value', (snap) => {
       const teamMessages = snap.val();
       this.teamMessages.next(this.filterMessages(teamMessages));
-      this.unreadTeamBlasts.next(this.filterMessages(teamMessages));
+      this.unreadTeamBlasts.next(this.filterRead(this.filterMessages(teamMessages), this.authService.currentUserProfile.userName));
+
     });
 
   };
   //handles control of the viewed By Column on firebase database
   messageViewHandler(fid, user, author, viewedBy, type, avatar) {
     const inViewedBy = this.unreadFilterNumber(user, viewedBy);
-    console.log('have I view this already', inViewedBy);
     const newViewedBy = inViewedBy > 0 ? [...viewedBy] : [...viewedBy, {user, avatar}];
       if(type.type === 'Team Blast') {
         firebase.database().ref(`/teamBlasts/${fid}`).update({viewedBy: newViewedBy});
@@ -70,9 +71,7 @@ export class MessageServiceService {
   filterGroupsForUnread(arr, user) {
     const newFilteredArray = [];
     for(let group of arr) {
-      const newFilteredGroup = [];
-        newFilteredGroup.push(this.filterRead(group.messages, user));
-      newFilteredArray.push(newFilteredGroup);
+      newFilteredArray.push({groupName: group.groupName, messages: this.filterRead(group.messages, user)});
     }
     return newFilteredArray;
   }
@@ -92,17 +91,21 @@ export class MessageServiceService {
   filterRead = (arr, user) => {
     const unreadMessages = [];
     for (let item of arr) {
-      let flag = false
-      const viewedArray = item.viewedBy ? item.viewedBy : [];
-      for(let itemObj of viewedArray) {
-        console.log(itemObj.user, user);
-        if(itemObj.user === user) {
-          flag = true;
-        }
-
-      }
-      if(!flag) {
+      let flag = false;
+      if(!item.viewedBy) {
         unreadMessages.push(item);
+      }
+      else {
+        for (let itemObj of item.viewedBy) {
+          console.log(itemObj.user, user);
+          if (itemObj.user === user) {
+            flag = true;
+          }
+
+        }
+        if (!flag) {
+          unreadMessages.push(item);
+        }
       }
     }
 

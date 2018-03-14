@@ -46,7 +46,6 @@ export class MainScreenViewComponent implements OnInit {
     });
     this.messageService.unreadGroupMessages.subscribe((data) => {
       this.groupMessages = data;
-      console.log(this.groupMessages);
       this.groupMessagesContainUnreads = this.groupMemberHaveAnyUnreads(this.groupMessages);
     });
     this.messageService.unreadTeamBlasts.subscribe((data) => {

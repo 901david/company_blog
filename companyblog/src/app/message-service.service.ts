@@ -27,7 +27,7 @@ export class MessageServiceService {
       }
       this.currentTeam.next(teamArray);
       this.unreadTeamMessages.next(this.filterTeamMembersForUnread(teamArray, this.authService.currentUserProfile.userName));
-      console.log('Here are my team messages',this.filterTeamMembersForUnread(teamArray, this.authService.currentUserProfile.userName));
+
 
     });
     //handles getting group messagesß
@@ -106,7 +106,6 @@ export class MessageServiceService {
       }
       else {
         for (let itemObj of item.viewedBy) {
-          console.log(itemObj.user, user);
           if (itemObj.user === user) {
             flag = true;
           }
@@ -121,7 +120,6 @@ export class MessageServiceService {
     return unreadMessages;
   }
   unreadFilterNumber(user, objArray) {
-    console.log(user, objArray);
     let counter = 0;
     for(let viewer of objArray) {
       if(viewer.viewedBy && viewer.viewedBy.user === user) {

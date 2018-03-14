@@ -15,8 +15,10 @@ export class SidebarComponent implements OnInit {
   groupPosts: any;
   teamBlastPosts: any;
   yourPosts:User;
-  groupPostsNewCount: number;
   sidebarNotifier = new Subject<any>();
+  unreadTeamBlastsNumber:number;
+  unreadTeamNumber:number;
+  unreadGroupNumber:number;
   constructor(private authService: AuthServiceService,
               private messageService: MessageServiceService) { }
 
@@ -33,12 +35,20 @@ export class SidebarComponent implements OnInit {
     });
     this.messageService.groupMessages.subscribe((data) => {
         this.groupPosts = data;
-      this.groupPostsNewCount = this.messageService.unreadFilterNumber(this.currentUser.userName, data);
     });
     this.messageService.teamMessages.subscribe((data) => {
       this.teamBlastPosts = data;
     });
-
+    this.messageService.unreadTeamMessages.subscribe((data) => {
+      this.unreadTeamNumber = this.findNumberOfUnreadsForBadge(data);
+      console.log(this.findNumberOfUnreadsForBadge(data));
+    });
+    this.messageService.unreadTeamBlasts.subscribe((data) => {
+      this.unreadTeamBlastsNumber = data.length;
+    })
+    this.messageService.unreadGroupMessages.subscribe((data) => {
+      this.unreadGroupNumber = this.findNumberOfUnreadsForBadge(data);
+    });
 
   }
   //return my posts only
@@ -59,33 +69,16 @@ export class SidebarComponent implements OnInit {
   outerOpenModal(person, post, type) {
     this.sidebarNotifier.next({person, post, type});
   }
-  // //returns number of new posts
-  // getGroupPostsNewNumber(arr) {
-  //   let totalNumber = 0;
-  //   if(arr) {
-  //       for(let group of arr) {
-  //         totalNumber += group.messages.length;
-  //       }
-  //   }
-  //   return totalNumber;
-  // }
-  // getTeamPosts(arr) {
-  //   if(arr.length === 0) {
-  //     return ['Currently No Posts'];
-  //   }
-  //   let teamArray;
-  //   if(arr) {
-  //     teamArray = arr;
-  //     for(let i = 0; i < teamArray.length; i++) {
-  //       console.log(teamArray[i].userName, this.authService.currentUserProfile.userName);
-  //       if(teamArray[i].userName === this.authService.currentUserProfile.userName) {
-  //         teamArray.splice(i, 1);
-  //
-  //       }
-  //     }
-  //   }
-  //   return arr;
-  // }
+  //This function returns number of new posts for groups and teams
+  findNumberOfUnreadsForBadge(arr) {
+    let counter = 0;
+    for(let item of arr) {
+      if(item.messages) {
+        counter += item.messages.length;
+      }
+    }
+    return counter;
+  }
 
 
 }

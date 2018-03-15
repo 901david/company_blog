@@ -3,6 +3,10 @@ import {AuthServiceService} from "../../auth-service.service";
 import {User} from "../../models/user.model";
 import {MessageServiceService} from "../../message-service.service";
 import {Subject} from "rxjs/Subject";
+import {Router} from "@angular/router";
+import {CookieService} from "ngx-cookie-service";
+import {HttpClientTestingBackend} from "@angular/common/http/testing/src/backend";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-sidebar',
@@ -22,7 +26,10 @@ export class SidebarComponent implements OnInit {
   unreadIndividualBadgeNumbers;
   unreadGroupBadgeNumbers;
   constructor(private authService: AuthServiceService,
-              private messageService: MessageServiceService) { }
+              private messageService: MessageServiceService,
+              private router: Router,
+              private cookie: CookieService,
+              private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.currentUser = this.authService.currentUserProfile;
@@ -111,13 +118,16 @@ export class SidebarComponent implements OnInit {
         return user;
       }, '');
 
-      console.log(viewed);
-      return viewed !== '' ? true : false;
+      return viewed !== '';
     }
 
       return false;
 
   }
-
+  onLogout() {
+    this.cookie.delete('currentUser');
+    this.httpClient.get('http://localhost:3002/logout');
+    this.router.navigate(['']);
+  }
 
 }

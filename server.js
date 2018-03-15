@@ -37,7 +37,7 @@ let profileInfo;
 passport.use(new GitHubStrategy({
         clientID: GITHUB_CLIENT_ID,
         clientSecret: GITHUB_CLIENT_SECRET,
-        callbackURL: "http://company-blog.us-east-2.elasticbeanstalk.com//auth/github/callback"
+        callbackURL: "http://localhost:3002/auth/github/callback"
     },
     (accessToken, refreshToken, profile, done) => {
         profileInfo = profile;

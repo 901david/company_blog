@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d6511f-183d-4c21-8e16-a5b5e2e96fd3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.html" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.html" />
       <change beforePath="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.ts" afterPath="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.ts" />
     </list>
@@ -18,51 +17,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sidebar.component.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sidebar.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+            <state relative-caret-position="622">
+              <caret line="52" column="77" lean-forward="false" selection-start-line="52" selection-start-column="77" selection-end-line="52" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main-screen-view.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="163" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="75" column="79" lean-forward="false" selection-start-line="75" selection-start-column="79" selection-end-line="75" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modal-markdown.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modal-markdown.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="message-service.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/companyblog/src/app/message-service.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2618">
-              <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+            <state relative-caret-position="396">
+              <caret line="124" column="80" lean-forward="false" selection-start-line="124" selection-start-column="80" selection-end-line="124" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -75,6 +54,8 @@
       <find>user_avatar</find>
       <find>unreadFilterNumber</find>
       <find>newViewedBy</find>
+      <find>toUpperCase</find>
+      <find>unreadIndividualBadgeNumbers</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -128,8 +109,8 @@
         <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.ts" />
         <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.ts" />
         <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/modal-markdown/modal-markdown.component.html" />
-        <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.ts" />
         <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.html" />
+        <option value="$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.ts" />
       </list>
     </option>
   </component>
@@ -211,7 +192,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="modal-markdown" type="462c0819:PsiDirectoryNode" />
+              <item name="main-screen-view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="company_blog" type="b2602c69:ProjectViewProjectNode" />
@@ -267,12 +248,12 @@
       <workItem from="1520484633007" duration="6933000" />
       <workItem from="1520521251464" duration="75660000" />
       <workItem from="1520971548617" duration="5268000" />
-      <workItem from="1521039113485" duration="11852000" />
+      <workItem from="1521039113485" duration="15387000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145112000" />
+    <option name="totallyTimeSpent" value="148647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1251" height="1050" extended-state="0" />
@@ -283,6 +264,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -294,7 +276,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -497,6 +478,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="49" column="35" lean-forward="false" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -594,17 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#h3#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h5#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -645,18 +616,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.ts">
+    <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/main-screen-view/main-screen-view.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        <state relative-caret-position="394">
+          <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="163" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="75" column="79" lean-forward="false" selection-start-line="75" selection-start-column="79" selection-end-line="75" selection-end-column="79" />
+        <state relative-caret-position="396">
+          <caret line="124" column="80" lean-forward="false" selection-start-line="124" selection-start-column="80" selection-end-line="124" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/companyblog/src/app/dashboard/sidebar/sidebar.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="52" column="77" lean-forward="false" selection-start-line="52" selection-start-column="77" selection-end-line="52" selection-end-column="77" />
           <folding />
         </state>
       </provider>

@@ -73,7 +73,7 @@
             <li *ngFor="let user of teamPosts;">
               <div class="collapsible-header">
                 {{user.userName}}
-                <span class="new badge" *ngIf="unreadIndividualBadgeNumbers && unreadIndividualBadgeNumbers[user.userName] !== 0;">{{unreadIndividualBadgeNumbers[user.userName]}}</span>
+                <span class="new badge" *ngIf="unreadIndividualBadgeNumbers[user.userName] !== 0">{{unreadIndividualBadgeNumbers[user.userName]}}</span>
               </div>
               <ng-template #nomessages>
                 <div class="collapsible-body">
@@ -94,8 +94,7 @@
                       <p>{{message.user}}</p>
                       <div class="col-xs-12">
                         <span class="title">{{message.title}}</span>
-                        <!--<p>{{message.body | truncateSidebar}}-->
-                        <!--</p>-->
+
                       </div>
                     </div>
 
@@ -123,7 +122,7 @@
           <li *ngFor="let group of groupPosts;">
         <div class="collapsible-header">
           {{group.groupName}}
-          <span class="new badge">{{group.messages.length}}</span>
+          <span class="new badge" *ngIf="unreadGroupBadgeNumbers[group.groupName] !== 0">{{unreadGroupBadgeNumbers[group.groupName]}}</span>
         </div>
 
         <div class="collapsible-body">
@@ -134,8 +133,7 @@
                 <p>{{message.user}}</p>
                 <div class="col-xs-12">
                   <span class="title">{{message.title}}</span>
-                  <!--<p>{{message.body | truncateSidebar}}-->
-                  <!--</p>-->
+                  <i class="small material-icons" *ngIf="message.viewedBy && hasThisUserSeenThis(message.viewedBy);">fiber_new</i>
                 </div>
               </div>
 

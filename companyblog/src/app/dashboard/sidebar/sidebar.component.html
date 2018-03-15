@@ -50,8 +50,7 @@
                 <p>{{message.user}}</p>
                 <div class="col-xs-12">
                   <span class="title">{{message.title}}</span>
-                  <!--<p>{{message.body | truncateSidebar}}-->
-                  <!--</p>-->
+                  <i class="small material-icons" *ngIf="!hasThisUserSeenThis(message.viewedBy)">fiber_new</i>
                 </div>
               </div>
 
@@ -94,7 +93,7 @@
                       <p>{{message.user}}</p>
                       <div class="col-xs-12">
                         <span class="title">{{message.title}}</span>
-
+                        <i class="small material-icons" *ngIf="!hasThisUserSeenThis(message.viewedBy)">fiber_new</i>
                       </div>
                     </div>
 
@@ -133,7 +132,7 @@
                 <p>{{message.user}}</p>
                 <div class="col-xs-12">
                   <span class="title">{{message.title}}</span>
-                  <i class="small material-icons" *ngIf="message.viewedBy && hasThisUserSeenThis(message.viewedBy);">fiber_new</i>
+                  <i class="small material-icons" *ngIf="!hasThisUserSeenThis(message.viewedBy)">fiber_new</i>
                 </div>
               </div>
 

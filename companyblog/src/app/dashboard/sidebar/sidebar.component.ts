@@ -101,13 +101,21 @@ export class SidebarComponent implements OnInit {
     return newBadgeArray;
   }
   hasThisUserSeenThis(viewArray) {
-    const viewed = viewArray.reduce((user, viewer) => {
-      if(viewer.user === this.currentUser.userName) {
-        user.user = viewer.user;
-      }
-      return user;
-    }, {user: ''});
-    return viewed.user !== '' ? true : false;
+    // console.log('here is my view array', viewArray);
+    if(viewArray) {
+      const viewed = viewArray.reduce((user, viewer) => {
+        // console.log(viewer.user, this.currentUser.userName);
+        if (viewer.user === this.currentUser.userName) {
+          user = viewer.user;
+        }
+        return user;
+      }, '');
+
+      console.log(viewed);
+      return viewed !== '' ? true : false;
+    }
+
+      return false;
 
   }
 

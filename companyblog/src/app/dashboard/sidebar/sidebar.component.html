@@ -64,7 +64,7 @@
       <li>
         <div class="collapsible-header">
           Team Member Posts
-          <span class="new badge">{{teamPosts ? teamPosts.length : ''}}</span>
+          <span class="new badge" *ngIf="unreadTeamNumber !== 0;">{{unreadTeamNumber}}</span>
         </div>
 
         <div class="collapsible-body">
@@ -73,7 +73,7 @@
             <li *ngFor="let user of teamPosts;">
               <div class="collapsible-header">
                 {{user.userName}}
-                <span class="new badge" *ngIf="unreadTeamNumber !== 0;">{{unreadTeamNumber}}</span>
+                <span class="new badge" *ngIf="unreadIndividualBadgeNumbers && unreadIndividualBadgeNumbers[user.userName] !== 0;">{{unreadIndividualBadgeNumbers[user.userName]}}</span>
               </div>
               <ng-template #nomessages>
                 <div class="collapsible-body">

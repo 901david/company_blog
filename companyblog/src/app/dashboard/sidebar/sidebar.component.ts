@@ -19,6 +19,7 @@ export class SidebarComponent implements OnInit {
   unreadTeamBlastsNumber:number;
   unreadTeamNumber:number;
   unreadGroupNumber:number;
+  unreadIndividualBadgeNumbers;
   constructor(private authService: AuthServiceService,
               private messageService: MessageServiceService) { }
 
@@ -41,7 +42,7 @@ export class SidebarComponent implements OnInit {
     });
     this.messageService.unreadTeamMessages.subscribe((data) => {
       this.unreadTeamNumber = this.findNumberOfUnreadsForBadge(data);
-      console.log(this.findNumberOfUnreadsForBadge(data));
+      this.unreadIndividualBadgeNumbers = this.findNumberOfUnreadsForTeamMembers(data);
     });
     this.messageService.unreadTeamBlasts.subscribe((data) => {
       this.unreadTeamBlastsNumber = data.length;
@@ -78,6 +79,15 @@ export class SidebarComponent implements OnInit {
       }
     }
     return counter;
+  }
+  findNumberOfUnreadsForTeamMembers(arr) {
+    const newBadgeArray = {};
+    for(let member of arr) {
+      if(member.messages && member.messages !== 0) {
+        newBadgeArray[member.userName] = member.messages.length;
+      }
+    }
+    return newBadgeArray;
   }
 
 

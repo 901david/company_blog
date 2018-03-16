@@ -53,7 +53,7 @@
                 <p>{{message.user}}</p>
                 <div class="col-xs-12">
                   <span class="title">{{message.title}}</span>
-                  <i class="small material-icons" *ngIf="!hasThisUserSeenThis(message.viewedBy)">fiber_new</i>
+                  <!--<i class="small material-icons" *ngIf="message.viewedBy ? !hasThisUserSeenThis(message.viewedBy) : !hasThisUserSeenThis([])">fiber_new</i>-->
                 </div>
               </div>
 

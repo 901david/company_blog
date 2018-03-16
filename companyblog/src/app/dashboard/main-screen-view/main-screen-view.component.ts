@@ -75,6 +75,7 @@ export class MainScreenViewComponent implements OnInit {
 
   markAsRead(type, fid, viewedBy, user, avatar, author) {
     this.messageService.messageViewHandler(fid, user, author, viewedBy, type, avatar);
+    this.messageService.getMessages();
   }
   //This function will determine if any team members have unreads at all
   groupMemberHaveAnyUnreads(array) {

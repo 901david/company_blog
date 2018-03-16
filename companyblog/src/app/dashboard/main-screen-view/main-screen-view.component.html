@@ -1,4 +1,4 @@
-<div class="col-xs-9" id="main-screen">
+<div class="col-xs-9" id="main-screen" *ngIf="currentUser['userName']">
   <div class="row">
     <div class="col-xs-6 col-xs-offset-1">
       <div routerLink="create" class="btn waves-effect waves-light pull-right post-button"><i class="large material-icons">add</i>Create New Post</div>
@@ -19,7 +19,7 @@
             <p>{{message.body}}
             </p>
           </div>
-          <i class="small material-icons" (click)="markAsRead('Team Blast', message.fid, currentUser.userName, currentUser.avatar_url, message.user)">fiber_new</i>
+          <i class="small material-icons" (click)="markAsRead(message.fid, currentUser.userName, message.user, message.viewedBy, 'Team Blast', currentUser.avatar_url)">fiber_new</i>
         </li>
       </div>
     </ul>

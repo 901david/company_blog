@@ -26,8 +26,6 @@ export class CreatePostComponent implements OnInit {
     if(localStorage.getItem('savedDraft')){
       const savedDraft = JSON.parse(localStorage.getItem('savedDraft'));
       this.initializeForm(savedDraft.title, savedDraft.body);
-      this.groups = savedDraft.groups;
-      this.teamBlast = savedDraft.teamBlast;
     }
     else {
       this.initializeForm();
@@ -93,9 +91,7 @@ export class CreatePostComponent implements OnInit {
     const { title, body } = this.blogForm.value;
     const savedPost = {
       title,
-      body,
-      groups: this.groups,
-      teamBlast: this.teamBlast
+      body
     };
     localStorage.setItem('savedDraft', JSON.stringify(savedPost));
   }

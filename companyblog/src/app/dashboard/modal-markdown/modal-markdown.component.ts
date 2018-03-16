@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {MaterializeAction} from "angular2-materialize";
 import {Subject} from "rxjs/Subject";
 import {AuthServiceService} from "../../auth-service.service";
+import {MessageServiceService} from "../../message-service.service";
 
 @Component({
   selector: 'app-modal-markdown',
@@ -13,7 +14,8 @@ export class ModalMarkdownComponent implements OnInit {
   @Input() currentPost: {};
   @Input() modalNotifier: Subject<boolean>;
   currentUser: string;
-  constructor(private authService: AuthServiceService) { }
+  constructor(private authService: AuthServiceService,
+              private messageService: MessageServiceService) { }
 
   ngOnInit() {
     this.modalNotifier.subscribe((value: boolean) => {
@@ -33,6 +35,7 @@ export class ModalMarkdownComponent implements OnInit {
   //controls modal close
   closeModal() {
     this.modalActions.emit({action:"modal",params:['close']});
+    this.messageService.getMessages();
   }
 
 }

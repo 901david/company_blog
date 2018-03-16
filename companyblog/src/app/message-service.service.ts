@@ -12,11 +12,12 @@ export class MessageServiceService {
   @Output() unreadTeamMessages = new Subject<any>();
   @Output() unreadTeamBlasts = new Subject<any>();
   @Output() unreadGroupMessages = new Subject<any>();
+  constructor(private authService: AuthServiceService) {
 
-  constructor(private authService: AuthServiceService) { }
+  }
   getMessages() {
     //handles getting user messages
-    firebase.database().ref(`/users`).once('value', (snap) => {
+    firebase.database().ref(`/users`).once('value').then( (snap) => {
       const team = snap.val();
       const teamArray = [];
       for(let user in team) {
@@ -31,7 +32,7 @@ export class MessageServiceService {
 
     });
     //handles getting group messagesß
-    firebase.database().ref('/groups').once('value',(snap) => {
+    firebase.database().ref('/groups').once('value').then((snap) => {
       const groupMessages = [];
       const groupObj = snap.val();
       for(let key in groupObj) {
@@ -43,12 +44,14 @@ export class MessageServiceService {
       this.groupMessages.next(groupMessages);
       this.unreadGroupMessages.next(this.filterGroupsForUnread(groupMessages, this.authService.currentUserProfile.userName));
 
+
     });
     //handles getting team messages
-    firebase.database().ref('/teamBlasts').once('value', (snap) => {
+    firebase.database().ref('/teamBlasts').once('value').then( (snap) => {
       const teamMessages = snap.val();
       this.teamMessages.next(this.filterMessages(teamMessages));
       this.unreadTeamBlasts.next(this.filterRead(this.filterMessages(teamMessages), this.authService.currentUserProfile.userName));
+      // this.unreadTeamBlasts.next(this.filterMessages(teamMessages));
 
     });
 
@@ -99,20 +102,22 @@ export class MessageServiceService {
   //a function that will filter out the read messages and emit that array to the main component
   filterRead = (arr, user) => {
     const unreadMessages = [];
-    for (let item of arr) {
-      let flag = false;
-      if(!item.viewedBy) {
-        unreadMessages.push(item);
-      }
-      else {
-        for (let itemObj of item.viewedBy) {
-          if (itemObj.user === user) {
-            flag = true;
-          }
-
-        }
-        if (!flag) {
+    if(arr) {
+      for (let item of arr) {
+        let flag = false;
+        if (!item.viewedBy) {
           unreadMessages.push(item);
+        }
+        else {
+          for (let itemObj of item.viewedBy) {
+            if (itemObj.user === user) {
+              flag = true;
+            }
+
+          }
+          if (!flag) {
+            unreadMessages.push(item);
+          }
         }
       }
     }

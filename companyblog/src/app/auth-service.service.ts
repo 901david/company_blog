@@ -34,7 +34,7 @@ export class AuthServiceService {
         this.router.navigate(['/dashboard']);
         return;
         });
-      };
+      }
   //logs a user out
   logout() {
     this.isAuthenticated.next(false);

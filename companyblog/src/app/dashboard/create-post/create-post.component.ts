@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BlogPostModel} from "../../models/blog-post.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthServiceService} from "../../auth-service.service";
+import {AuthServiceService} from "../../services/auth-service.service";
 import {Router} from "@angular/router";
 import * as firebase from 'firebase';
 

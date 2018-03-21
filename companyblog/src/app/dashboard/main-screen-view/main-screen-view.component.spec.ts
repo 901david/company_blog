@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainScreenViewComponent } from './main-screen-view.component';
 
-describe('MainScreenViewComponent', () => {
+xdescribe('MainScreenViewComponent', () => {
   let component: MainScreenViewComponent;
   let fixture: ComponentFixture<MainScreenViewComponent>;
 
@@ -23,3 +23,5 @@ describe('MainScreenViewComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+

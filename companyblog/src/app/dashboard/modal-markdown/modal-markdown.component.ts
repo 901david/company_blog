@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {MaterializeAction} from "angular2-materialize";
 import {Subject} from "rxjs/Subject";
-import {AuthServiceService} from "../../auth-service.service";
-import {MessageServiceService} from "../../message-service.service";
+import {AuthServiceService} from "../../services/auth-service.service";
+import {MessageServiceService} from "../../services/message-service.service";
 
 @Component({
   selector: 'app-modal-markdown',

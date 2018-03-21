@@ -11,7 +11,8 @@
   <h3 style="text-decoration: underline">Team Blasts</h3>
     <ul class="collection">
       <div *ngFor="let message of teamMessages;">
-        <li class="collection-item avatar" (click)="outerOpenModal('Group', message, {type: 'Team Blast', name: ''})">
+        <li class="collection-item avatar" >
+          <div class="col-xs-11" (click)="outerOpenModal('Group', message, {type: 'Team Blast', name: ''})">
           <div style="display:inline-block;">
             <img src="{{message.user_avatar}}" alt="{{message.user}}" class="circle">
             <span class="title">{{message.title}}</span>
@@ -19,8 +20,13 @@
             <p>{{message.body}}
             </p>
           </div>
-          <i class="small material-icons" (click)="markAsRead(message.fid, currentUser.userName, message.user, message.viewedBy, 'Team Blast', currentUser.avatar_url)">fiber_new</i>
+          <i class="small material-icons" >fiber_new</i>
+        </div>
+          <div class="col-xs-1">
+            <i (click)="markAsRead(message.fid, currentUser.userName, message.user, message.viewedBy, 'Team Blast', currentUser.avatar_url)" class="medium material-icons">visibility_off</i>
+          </div>
         </li>
+
       </div>
     </ul>
   </div>
@@ -39,7 +45,7 @@
     </p>
       </div>
     </div>
-    <i class="small material-icons" (click)="markAsRead('Group', message.fid, group.groupName, currentUser.avatar_url, post.user)">fiber_new</i>
+    <i style="cursor:pointer;" class="small material-icons" (click)="markAsRead('', message.fid, message.viewedBy, currentUser.userName, currentUser.avatar_url, message.user)">fiber_new</i>
   </li>
     </div>
   </ul>
@@ -59,8 +65,7 @@
       <p>{{message.body}}
       </p>
     </div>
-    <i class="small material-icons" (click)="markAsRead('Group', message.fid, group.groupName)">fiber_new</i>
-  </li>
+      <i style="cursor:pointer;" class="small material-icons" (click)="markAsRead('Group', message.fid, message.viewedBy, currentUser.userName, currentUser.avatar_url, message.user)">fiber_new</i>
     </div>
 </ul>
   </div>

@@ -1,7 +1,7 @@
 import {Injectable, Output} from '@angular/core';
 import {CookieService} from "ngx-cookie-service";
 import * as firebase from 'firebase';
-import {User} from "./models/user.model";
+import {User} from "../models/user.model";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {Subject} from "rxjs/Subject";

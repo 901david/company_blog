@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import * as firebase from "firebase";
 import {CookieService} from "ngx-cookie-service";
-import {AuthServiceService} from "../auth-service.service";
+import {AuthServiceService} from "../services/auth-service.service";
 
 @Component({
   selector: 'app-main',

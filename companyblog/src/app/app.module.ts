@@ -5,7 +5,7 @@ import {NgModule, OnInit} from '@angular/core';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import {MaterializeModule} from "angular2-materialize";
-import {AppRoutingModule} from "./app-routing";
+import {AppRoutingModule} from "./routing/app-routing";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { BannerComponent } from './dashboard/banner/banner.component';
@@ -14,13 +14,13 @@ import { MainScreenViewComponent } from './dashboard/main-screen-view/main-scree
 import {HttpClientModule} from "@angular/common/http";
 import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 import { CookieService } from 'ngx-cookie-service';
-import {AuthServiceService} from "./auth-service.service";
-import {AuthGuardService} from "./auth-guard.service";
-import {MessageServiceService} from "./message-service.service";
+import {AuthServiceService} from "./services/auth-service.service";
+import {AuthGuardService} from "./services/auth-guard.service";
+import {MessageServiceService} from "./services/message-service.service";
 import {MarkdownModule} from "angular2-markdown";
 import { ModalMarkdownComponent } from './dashboard/modal-markdown/modal-markdown.component';
-import { TruncateBlogPipe } from './truncate-blog.pipe';
-import { TruncateSidebarPipe } from './dashboard/truncate-sidebar.pipe';
+import { TruncateBlogPipe } from './pipes/truncate-blog.pipe';
+import { TruncateSidebarPipe } from './pipes/truncate-sidebar.pipe';
 
 @NgModule({
   declarations: [

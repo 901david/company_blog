@@ -1,7 +1,7 @@
 import {Component, OnInit, Output} from '@angular/core';
-import {AuthServiceService} from "../../auth-service.service";
+import {AuthServiceService} from "../../services/auth-service.service";
 import {User} from "../../models/user.model";
-import {MessageServiceService} from "../../message-service.service";
+import {MessageServiceService} from "../../services/message-service.service";
 import {Subject} from "rxjs/Subject";
 import {Router} from "@angular/router";
 import {CookieService} from "ngx-cookie-service";

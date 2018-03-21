@@ -22,7 +22,7 @@
         <div class="collapsible-header">
           Your Posts
         </div>
-        <div class="collapsible-body">
+        <div class="collapsible-body" *ngIf="yourPosts.messages.length !== 0; else nomessages;">
           <ul class="collection" *ngFor="let post of yourPosts.messages;">
               <li class="collection-item avatar" (click)="outerOpenModal(currentUser.avatar, post, '')">
                 <div style="display:inline-block;">

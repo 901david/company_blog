@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../../models/user.model";
-import {MessageServiceService} from "../../message-service.service";
+import {MessageServiceService} from "../../services/message-service.service";
 import {Subject} from "rxjs/Subject";
-import {AuthServiceService} from "../../auth-service.service";
+import {AuthServiceService} from "../../services/auth-service.service";
 
 @Component({
   selector: 'app-main-screen-view',
@@ -65,7 +65,6 @@ export class MainScreenViewComponent implements OnInit {
     };
     this.modalNotifier.next(true);
     this.modalStatus = true;
-    console.log('current post in parent', this.currentlySelectedPost);
     //handle marking the post as viewed
     const viewedBy = this.currentlySelectedPost.hasOwnProperty('viewedBy') ? this.currentlySelectedPost['viewedBy'] : [];
     const fid = this.currentlySelectedPost['fid'];
@@ -73,7 +72,8 @@ export class MainScreenViewComponent implements OnInit {
     this.messageService.messageViewHandler(fid, this.authService.currentUserProfile.userName, userName, viewedBy, type, this.authService.currentUserProfile.avatar);
   }
 
-  markAsRead(type, fid, viewedBy, user, avatar, author) {
+  markAsRead(fid, user, author, viewedBy = [], type, avatar) {
+    console.log('LOOOK HEEER',viewedBy);
     this.messageService.messageViewHandler(fid, user, author, viewedBy, type, avatar);
     this.messageService.getMessages();
   }

@@ -1,7 +1,6 @@
 import {Injectable, Output} from '@angular/core';
 import * as firebase from "firebase";
 import {Subject} from "rxjs/Subject";
-import {User} from "./models/user.model";
 import {AuthServiceService} from "./auth-service.service";
 
 @Injectable()
@@ -58,10 +57,17 @@ export class MessageServiceService {
   };
   //handles control of the viewed By Column on firebase database
   messageViewHandler(fid, user, author, viewedBy, type, avatar) {
-    const inViewedBy = this.unreadFilterNumber(user, viewedBy);
-    const newViewedBy = inViewedBy > 0 ? [...viewedBy] : [...viewedBy, {user, avatar}];
+    let newViewedBy;
+    if(viewedBy.length === 0) {
+      newViewedBy = [{user, avatar}];
+    }
+    else {
+      const inViewedBy = this.unreadFilterNumber(user, viewedBy);
+      newViewedBy = inViewedBy > 0 ? [...viewedBy] : [...viewedBy, {user, avatar}];
+    }
+
       if(type.type === 'Team Blast') {
-        firebase.database().ref(`/teamBlasts/${fid}`).update({viewedBy: newViewedBy});
+        firebase.database().ref(`/teamBlasts/${fid}`).set({viewedBy: newViewedBy});
       }
       else if(type.type === 'Group') {
         firebase.database().ref(`/groups/${type.name}/${fid}`).update({viewedBy: newViewedBy});
